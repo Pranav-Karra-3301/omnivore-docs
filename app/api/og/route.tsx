@@ -6,8 +6,10 @@ export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get('title') || 'Omnivore';
-  const description = searchParams.get('description') || 'Universal Web Crawler & Knowledge Graph';
+  const title = searchParams.get('title') || 'Omnivore Documentation';
+
+  // Use the bundled static screenshot as the site preview
+  const previewUrl = new URL('/preview.png', req.url).toString();
 
   return new ImageResponse(
     (
@@ -19,59 +21,84 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: 'white',
-          backgroundImage: 'linear-gradient(to bottom right, #E0E7FF 25%, #FFFFFF 50%, #E0E7FF 75%)',
+          padding: '40px',
+          // Layered gradient + subtle grid
+          backgroundImage:
+            'radial-gradient(120% 100% at 50% 0%, #c4b5fd 0%, #a78bfa 35%, #c084fc 65%, #a78bfa 100%), linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px)',
+          backgroundSize: '100% 100%, 60px 60px, 60px 60px',
+          backgroundPosition: 'center, center, center',
         }}
       >
         <div
-            style={{
-                width: 100,
-                height: 100,
-                marginBottom: 20,
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                borderRadius: 20,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 48,
-                fontWeight: 'bold',
-                color: 'white',
-            }}
+          style={{
+            position: 'absolute',
+            top: 40,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+          }}
         >
-            O
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: 20,
+              padding: '8px 20px',
+              fontSize: 18,
+              color: 'white',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+            }}
+          >
+            Open Source
+          </div>
         </div>
+
         <div
           style={{
-            fontSize: 60,
+            fontSize: 64,
             fontWeight: 700,
-            color: '#1F2937',
-            marginBottom: 20,
+            color: 'white',
+            marginBottom: 36,
             textAlign: 'center',
-            padding: '0 50px',
           }}
         >
           {title}
         </div>
+
         <div
           style={{
-            fontSize: 30,
-            color: '#4B5563',
-            textAlign: 'center',
-            padding: '0 50px',
+            width: 1040,
+            height: 430,
+            borderRadius: 28,
+            overflow: 'hidden',
+            position: 'relative',
+            border: '1px solid rgba(255,255,255,0.35)',
+            boxShadow: '0 25px 70px rgba(62, 34, 98, 0.35)',
+            background: 'rgba(255,255,255,0.55)',
+            backdropFilter: 'blur(2px)',
           }}
         >
-          {description}
-        </div>
-        <div
+          {/* site screenshot */}
+          <img
+            src={previewUrl}
+            alt="Omnivore Docs Preview"
             style={{
-                position: 'absolute',
-                bottom: 40,
-                right: 40,
-                display: 'flex',
-                alignItems: 'center',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
             }}
+          />
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 40,
+            color: 'rgba(255, 255, 255, 0.8)',
+            fontSize: 16,
+          }}
         >
-            <span style={{ color: '#4B5563', fontSize: 24 }}>omnivore.pranavkarra.me</span>
+          ov.pranavkarra.me
         </div>
       </div>
     ),
