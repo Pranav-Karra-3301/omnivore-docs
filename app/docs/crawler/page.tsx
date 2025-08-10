@@ -7,7 +7,7 @@ export default function CrawlerPage() {
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Crawler Engine</h1>
       
       <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio. 
+        Omnivore&apos;s crawler engine is a high-performance, parallel web crawler built with Rust and Tokio. 
         It features intelligent URL frontier management, politeness controls, and automatic rate limiting.
       </p>
 
@@ -53,7 +53,7 @@ export default function CrawlerPage() {
 
       <h4>2. Worker Pool</h4>
       <p>
-        Parallel workers powered by Tokio's async runtime handle concurrent page fetching:
+        Parallel workers powered by Tokio&apos;s async runtime handle concurrent page fetching:
       </p>
       <CodeBlock language="rust">{`// Worker configuration
 pub struct WorkerConfig {

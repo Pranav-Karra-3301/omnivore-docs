@@ -7,7 +7,7 @@ export default function ProcessingPage() {
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Data Processing Pipeline</h1>
       
       <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Omnivore's data processing pipeline transforms raw web content into structured, analyzable data. 
+        Omnivore&apos;s data processing pipeline transforms raw web content into structured, analyzable data. 
         From HTML parsing to entity extraction, each stage is optimized for performance and accuracy.
       </p>
 

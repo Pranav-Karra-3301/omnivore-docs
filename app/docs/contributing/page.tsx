@@ -7,7 +7,7 @@ export default function ContributingPage() {
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Contributing to Omnivore</h1>
       
       <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Omnivore is an open-source project and we welcome contributions from the community! Whether you're fixing bugs, 
+        Omnivore is an open-source project and we welcome contributions from the community! Whether you&apos;re fixing bugs, 
         adding features, improving documentation, or reporting issues, your help is valuable.
       </p>
 
@@ -62,7 +62,7 @@ git checkout -b fix/issue-description`}</CodeBlock>
 
       <h3>Code Style</h3>
       <ul>
-        <li>Follow Rust's official style guidelines</li>
+        <li>Follow Rust&apos;s official style guidelines</li>
         <li>Use <code>cargo fmt</code> to format your code</li>
         <li>Run <code>cargo clippy</code> to catch common mistakes</li>
         <li>Ensure all tests pass with <code>cargo test</code></li>
