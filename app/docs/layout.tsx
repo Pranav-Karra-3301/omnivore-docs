@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { 
   Book, 
@@ -58,9 +59,13 @@ export default function DocsLayout({
               </Link>
               <span className="text-gray-300 dark:text-gray-700">|</span>
               <div className="flex items-center space-x-2">
-                <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-md flex items-center justify-center">
-                  <Globe className="w-4 h-4 text-white" />
-                </div>
+                <Image 
+                  src="/logo.png"
+                  alt="Omnivore Logo"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
                 <span className="font-semibold text-gray-900 dark:text-white">Omnivore Docs</span>
               </div>
               <a

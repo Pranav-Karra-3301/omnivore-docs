@@ -27,9 +27,13 @@ export default function HomePage() {
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-white" />
-                </div>
+                <Image 
+                  src="/logo.png"
+                  alt="Omnivore Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
                 <span className="text-xl font-bold text-gray-900 dark:text-white">Omnivore</span>
               </div>
               <div className="hidden md:flex space-x-6">
@@ -355,9 +359,13 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-white" />
-                </div>
+                <Image 
+                  src="/logo.png"
+                  alt="Omnivore Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
                 <span className="text-xl font-bold">Omnivore</span>
               </div>
               <p className="text-gray-400 mb-4">
