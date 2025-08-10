@@ -1,3 +1,5 @@
+'use client'
+
 import { GitBranch, FileCode, Filter, Download, FolderOpen, Terminal, Shield, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
 
@@ -340,11 +342,11 @@ repos=(
   "https://github.com/user/repo3.git"
 )
 
-for repo in "${repos[@]}"; do
+for repo in "\${repos[@]}"; do
   name=$(basename "$repo" .git)
   omnivore git "$repo" \\
     --include "**/*.go" \\
-    --json > "${name}.json"
+    --json > "\${name}.json"
 done
 
 # Combine all JSON files
