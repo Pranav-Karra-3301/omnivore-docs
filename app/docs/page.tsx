@@ -13,15 +13,20 @@ import {
 } from 'lucide-react'
 import type { Metadata } from 'next'
 
+const ogTitle = 'Documentation - Omnivore'
+const ogImageUrl = `/api/og?title=${encodeURIComponent('Omnivore Documentation')}`
+
 export const metadata: Metadata = {
-  title: 'Documentation - Omnivore',
-  description: 'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
+  title: ogTitle,
+  description:
+    'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
   openGraph: {
-    title: 'Documentation - Omnivore',
-    description: 'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
+    title: ogTitle,
+    description:
+      'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
     images: [
       {
-        url: `/api/og?title=Omnivore Docs`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Omnivore Documentation',

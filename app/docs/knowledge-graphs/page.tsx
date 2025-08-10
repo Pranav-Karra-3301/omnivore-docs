@@ -2,6 +2,8 @@ import { Network, Database, GitBranch, Cpu, Search, BarChart, Layers, Link2 } fr
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
+const ogImageUrl = `/api/og?title=${encodeURIComponent('Knowledge Graphs')}`
+
 export const metadata: Metadata = {
   title: 'Knowledge Graphs - Omnivore',
   description: 'Transform crawled web data into structured knowledge graphs.',
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Transform crawled web data into structured knowledge graphs.',
     images: [
       {
-        url: `/api/og?title=Knowledge Graphs`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Knowledge Graphs - Omnivore',

@@ -1,6 +1,8 @@
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
+const ogImageUrl = `/api/og?title=${encodeURIComponent('CLI Reference')}`
+
 export const metadata: Metadata = {
   title: 'CLI Reference - Omnivore',
   description: 'Key commands available in the Omnivore CLI.',
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Key commands available in the Omnivore CLI.',
     images: [
       {
-        url: `/api/og?title=CLI Reference`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'CLI Reference - Omnivore',

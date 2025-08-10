@@ -2,6 +2,8 @@ import { GitBranch, GitPullRequest, Bug, MessageSquare, Code, CheckCircle } from
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
+const ogImageUrl = `/api/og?title=${encodeURIComponent('Contributing to Omnivore')}`
+
 export const metadata: Metadata = {
   title: 'Contributing to Omnivore - Omnivore',
   description: 'Omnivore is an open-source project and we welcome contributions from the community!',
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Omnivore is an open-source project and we welcome contributions from the community!',
     images: [
       {
-        url: `/api/og?title=Contributing to Omnivore`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Contributing to Omnivore - Omnivore',

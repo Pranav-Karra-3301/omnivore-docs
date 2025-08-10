@@ -2,6 +2,8 @@ import { Globe, Cpu, Shield, Zap, Settings, Database, Network, GitBranch } from 
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
+const ogImageUrl = `/api/og?title=${encodeURIComponent('Crawler Engine')}`
+
 export const metadata: Metadata = {
   title: 'Crawler Engine - Omnivore',
   description: "Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio.",
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     description: "Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio.",
     images: [
       {
-        url: `/api/og?title=Crawler Engine`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Crawler Engine - Omnivore',
