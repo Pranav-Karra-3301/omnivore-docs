@@ -23,8 +23,10 @@ export async function GET(req: NextRequest) {
           backgroundImage: 'linear-gradient(to bottom right, #E0E7FF 25%, #FFFFFF 50%, #E0E7FF 75%)',
         }}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
             src="https://omnivore.pranavkarra.me/logo.png"
+            alt="Omnivore Logo"
             style={{
                 width: 100,
                 height: 100,
