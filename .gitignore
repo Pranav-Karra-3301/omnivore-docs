@@ -46,4 +46,9 @@ coverage/
 # Temporary files
 tmp/
 temp/
-.vercel
+
+# Vercel
+.vercel/output/
+.vercel/.env*
+# Keep project.json to maintain settings
+# .vercel/project.json
