@@ -2,6 +2,24 @@
 
 import { GitBranch, FileCode, Filter, Download, FolderOpen, Terminal, Shield, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Git Repository Code Extraction - Omnivore',
+  description: 'Intelligently extract meaningful code from Git repositories.',
+  openGraph: {
+    title: 'Git Repository Code Extraction - Omnivore',
+    description: 'Intelligently extract meaningful code from Git repositories.',
+    images: [
+      {
+        url: `/api/og?title=Git Repository Code Extraction`,
+        width: 1200,
+        height: 630,
+        alt: 'Git Repository Code Extraction - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function GitExtractionPage() {
   return (

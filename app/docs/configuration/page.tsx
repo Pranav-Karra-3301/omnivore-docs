@@ -1,4 +1,22 @@
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Configuration - Omnivore',
+  description: 'Tune Omnivore for your workload using a simple TOML file.',
+  openGraph: {
+    title: 'Configuration - Omnivore',
+    description: 'Tune Omnivore for your workload using a simple TOML file.',
+    images: [
+      {
+        url: `/api/og?title=Configuration`,
+        width: 1200,
+        height: 630,
+        alt: 'Configuration - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function ConfigurationPage() {
   return (

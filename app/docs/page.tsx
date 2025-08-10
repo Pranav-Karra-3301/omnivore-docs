@@ -11,6 +11,24 @@ import {
   Book,
   ExternalLink
 } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Documentation - Omnivore',
+  description: 'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
+  openGraph: {
+    title: 'Documentation - Omnivore',
+    description: 'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',
+    images: [
+      {
+        url: `/api/og?title=Omnivore Docs`,
+        width: 1200,
+        height: 630,
+        alt: 'Omnivore Documentation',
+      },
+    ],
+  },
+};
 
 export default function DocsPage() {
   return (

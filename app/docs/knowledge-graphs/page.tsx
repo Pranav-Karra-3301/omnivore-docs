@@ -1,5 +1,23 @@
 import { Network, Database, GitBranch, Cpu, Search, BarChart, Layers, Link2 } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Knowledge Graphs - Omnivore',
+  description: 'Transform crawled web data into structured knowledge graphs.',
+  openGraph: {
+    title: 'Knowledge Graphs - Omnivore',
+    description: 'Transform crawled web data into structured knowledge graphs.',
+    images: [
+      {
+        url: `/api/og?title=Knowledge Graphs`,
+        width: 1200,
+        height: 630,
+        alt: 'Knowledge Graphs - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function KnowledgeGraphsPage() {
   return (

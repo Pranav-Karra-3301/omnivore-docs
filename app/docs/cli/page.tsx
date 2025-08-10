@@ -1,4 +1,22 @@
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'CLI Reference - Omnivore',
+  description: 'Key commands available in the Omnivore CLI.',
+  openGraph: {
+    title: 'CLI Reference - Omnivore',
+    description: 'Key commands available in the Omnivore CLI.',
+    images: [
+      {
+        url: `/api/og?title=CLI Reference`,
+        width: 1200,
+        height: 630,
+        alt: 'CLI Reference - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function CLIPage() {
   return (

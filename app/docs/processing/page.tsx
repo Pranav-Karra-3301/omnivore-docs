@@ -1,5 +1,23 @@
 import { FileText, Filter, Cpu, Database, Search, Code, Layers, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Data Processing Pipeline - Omnivore',
+  description: "Omnivore's data processing pipeline transforms raw web content into structured, analyzable data.",
+  openGraph: {
+    title: 'Data Processing Pipeline - Omnivore',
+    description: "Omnivore's data processing pipeline transforms raw web content into structured, analyzable data.",
+    images: [
+      {
+        url: `/api/og?title=Data Processing Pipeline`,
+        width: 1200,
+        height: 630,
+        alt: 'Data Processing Pipeline - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function ProcessingPage() {
   return (

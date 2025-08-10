@@ -1,5 +1,23 @@
 import { GitBranch, GitPullRequest, Bug, MessageSquare, Code, CheckCircle } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contributing to Omnivore - Omnivore',
+  description: 'Omnivore is an open-source project and we welcome contributions from the community!',
+  openGraph: {
+    title: 'Contributing to Omnivore - Omnivore',
+    description: 'Omnivore is an open-source project and we welcome contributions from the community!',
+    images: [
+      {
+        url: `/api/og?title=Contributing to Omnivore`,
+        width: 1200,
+        height: 630,
+        alt: 'Contributing to Omnivore - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function ContributingPage() {
   return (
@@ -33,7 +51,7 @@ export default function ContributingPage() {
       <h3>1. Fork and Clone</h3>
       <p>Start by forking the repository and cloning it locally:</p>
       <CodeBlock language="bash">{`# Fork the repository on GitHub, then:
-git clone https://github.com/YOUR-USERNAME/omnivore.git
+git clone https://github.com/Pranav-Karra-3301/omnivore.git
 cd omnivore
 git remote add upstream https://github.com/Pranav-Karra-3301/omnivore.git`}</CodeBlock>
 

@@ -8,6 +8,24 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Quick Start Guide - Omnivore',
+  description: 'Get up and running with Omnivore in just a few minutes.',
+  openGraph: {
+    title: 'Quick Start Guide - Omnivore',
+    description: 'Get up and running with Omnivore in just a few minutes.',
+    images: [
+      {
+        url: `/api/og?title=Quick Start Guide`,
+        width: 1200,
+        height: 630,
+        alt: 'Quick Start Guide - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function QuickStartPage() {
   return (

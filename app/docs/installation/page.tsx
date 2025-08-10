@@ -1,5 +1,23 @@
 import { Download, Terminal, Package, Dock, CheckCircle, AlertCircle } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Installation Guide - Omnivore',
+  description: 'Install Omnivore on macOS, Linux, or in Docker.',
+  openGraph: {
+    title: 'Installation Guide - Omnivore',
+    description: 'Install Omnivore on macOS, Linux, or in Docker.',
+    images: [
+      {
+        url: `/api/og?title=Installation Guide`,
+        width: 1200,
+        height: 630,
+        alt: 'Installation Guide - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function InstallationPage() {
   return (

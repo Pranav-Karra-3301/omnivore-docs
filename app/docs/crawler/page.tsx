@@ -1,5 +1,23 @@
 import { Globe, Cpu, Shield, Zap, Settings, Database, Network, GitBranch } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Crawler Engine - Omnivore',
+  description: "Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio.",
+  openGraph: {
+    title: 'Crawler Engine - Omnivore',
+    description: "Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio.",
+    images: [
+      {
+        url: `/api/og?title=Crawler Engine`,
+        width: 1200,
+        height: 630,
+        alt: 'Crawler Engine - Omnivore',
+      },
+    ],
+  },
+};
 
 export default function CrawlerPage() {
   return (
