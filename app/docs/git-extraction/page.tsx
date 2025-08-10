@@ -1,5 +1,3 @@
-'use client'
-
 import { GitBranch, FileCode, Filter, Download, FolderOpen, Terminal, Shield, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
