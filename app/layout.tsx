@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: 'https://ov.pranavkarra.me',
     images: [
       {
-        url: '/preview.png',
+        url: 'https://ov.pranavkarra.me/api/og?title=Omnivore&description=Universal%20Web%20Crawler%20%26%20Knowledge%20Graph',
         width: 1200,
         height: 630,
         alt: 'Omnivore Web Crawler',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'Omnivore - Universal Web Crawler & Knowledge Graph',
     description: 'High-performance, parallel web crawler and knowledge graph system built in Rust.',
     creator: '@pranavkarra',
-    images: ['/preview.png'],
+    images: ['https://ov.pranavkarra.me/api/og?title=Omnivore&description=Universal%20Web%20Crawler%20%26%20Knowledge%20Graph'],
   },
 }
 
