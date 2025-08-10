@@ -3,10 +3,10 @@ import CodeBlock from '@/components/CodeBlock'
 
 export default function InstallationPage() {
   return (
-    <div className="prose prose-lg max-w-none">
-      <h1 className="text-4xl font-bold text-gray-900 mb-6">Installation Guide</h1>
+    <div className="prose prose-lg max-w-none dark:prose-invert">
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Installation Guide</h1>
 
-      <p className="text-xl text-gray-600 mb-8">
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
         Install Omnivore on macOS, Linux, or in Docker. Use Homebrew if you want the simplest setup; use Docker for containerized runs; or build from source for maximum control.
       </p>
 

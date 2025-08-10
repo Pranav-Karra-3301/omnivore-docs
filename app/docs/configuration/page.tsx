@@ -2,9 +2,9 @@ import CodeBlock from '@/components/CodeBlock'
 
 export default function ConfigurationPage() {
   return (
-    <div className="prose prose-lg max-w-none">
-      <h1 className="text-4xl font-bold text-gray-900 mb-6">Configuration</h1>
-      <p className="text-xl text-gray-600 mb-8">Tune Omnivore for your workload using a simple TOML file.</p>
+    <div className="prose prose-lg max-w-none dark:prose-invert">
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Configuration</h1>
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">Tune Omnivore for your workload using a simple TOML file.</p>
 
       <h2>Default Locations</h2>
       <ul>

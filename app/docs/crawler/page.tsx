@@ -1,8 +1,8 @@
 export default function CrawlerPage() {
   return (
-    <div className="prose prose-lg max-w-none">
-      <h1 className="text-4xl font-bold text-gray-900 mb-6">Crawler Engine</h1>
-      <p className="text-xl text-gray-600 mb-8">Overview of the parallel crawler, frontier, politeness engine, and workers.</p>
+    <div className="prose prose-lg max-w-none dark:prose-invert">
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Crawler Engine</h1>
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">Overview of the parallel crawler, frontier, politeness engine, and workers.</p>
 
       <h2>Architecture</h2>
       <ul>

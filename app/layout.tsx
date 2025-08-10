@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
 import ThemeToggle from '@/components/ThemeToggle'
+import { Analytics } from '@vercel/analytics/react'
 
 const CopyCodeClient = dynamic(() => import('@/components/CopyCodeClient'), { ssr: false })
 
@@ -53,10 +54,11 @@ export default function RootLayout({
   // Simple dark mode toggle (client hydrated via CopyCodeClient already)
   return (
     <html lang="en" className={`${inter.className} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 dark:text-gray-100 transition-colors">
+      <body className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-950 dark:to-black dark:text-gray-100 transition-colors">
         {children}
         <CopyCodeClient />
-        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='dark') document.documentElement.classList.add('dark');} catch{} })();` }} />
+        <Analytics />
+        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');} catch{} })();` }} />
       </body>
     </html>
   )

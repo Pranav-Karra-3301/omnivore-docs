@@ -10,6 +10,20 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 248, 250, 252;
+    --background-start-rgb: 2, 6, 23;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.dark {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 2, 6, 23;
+  --background-end-rgb: 0, 0, 0;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -51,6 +65,15 @@ a {
   @apply text-gray-100 bg-transparent p-0;
 }
 
+/* Dark mode code highlighting */
+.dark .prose code {
+  @apply text-red-400 bg-gray-800;
+}
+
+.dark .prose pre {
+  @apply bg-gray-950;
+}
+
 /* Navigation active state */
 .nav-active {
   @apply bg-primary-100 text-primary-700 border-r-2 border-primary-500;
@@ -72,6 +95,18 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
 }
 
 /* Smooth scrolling */

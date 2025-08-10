@@ -46,28 +46,28 @@ export default function DocsLayout({
   const pathname = usePathname()
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="/" className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Home</span>
               </Link>
-              <span className="text-gray-300">|</span>
+              <span className="text-gray-300 dark:text-gray-700">|</span>
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-md flex items-center justify-center">
                   <Globe className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-semibold text-gray-900">Omnivore Docs</span>
+                <span className="font-semibold text-gray-900 dark:text-white">Omnivore Docs</span>
               </div>
               <a
                 href="https://omnivore.readthedocs.io/en/latest/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4 text-sm text-gray-500 hover:text-gray-700"
+                className="ml-4 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
               >
                 readthedocs.org ↗
               </a>
@@ -86,7 +86,7 @@ export default function DocsLayout({
             <div className="space-y-8">
               {navigation.map((section) => (
                 <div key={section.name}>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-3">
                     {section.name}
                   </h3>
                   <ul className="space-y-1">
@@ -99,8 +99,8 @@ export default function DocsLayout({
                             href={item.href}
                             className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                               isActive
-                                ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-500'
-                                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                                ? 'bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border-r-2 border-blue-500'
+                                : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-900'
                             }`}
                           >
                             <Icon className="w-4 h-4" />
@@ -112,8 +112,8 @@ export default function DocsLayout({
                   </ul>
                 </div>
               ))}
-              <div className="text-xs text-gray-500 pt-6 border-t border-gray-200">
-                <a href="https://github.com/Pranav-Karra-3301/omnivore" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">
+              <div className="text-xs text-gray-500 dark:text-gray-400 pt-6 border-t border-gray-200 dark:border-gray-800">
+                <a href="https://github.com/Pranav-Karra-3301/omnivore" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-200">
                   Open source on GitHub
                 </a>
               </div>
@@ -124,9 +124,9 @@ export default function DocsLayout({
           <main className="flex-1 py-8 pl-8">
             <div className="max-w-4xl">
               {children}
-              <div className="mt-12 text-xs text-gray-400">
+              <div className="mt-12 text-xs text-gray-400 dark:text-gray-500">
                 <span>
-                  Built with ❤️ and Rust · <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-gray-600 hover:text-gray-600">Developed by Pranav Karra</a>
+                  Built with ❤️ and Rust · <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-gray-600 dark:decoration-gray-400 hover:text-gray-600 dark:hover:text-gray-300">Developed by Pranav Karra</a>
                 </span>
               </div>
             </div>

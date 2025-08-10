@@ -11,10 +11,10 @@ import CodeBlock from '@/components/CodeBlock'
 
 export default function QuickStartPage() {
   return (
-    <div className="prose prose-lg max-w-none">
-      <h1 className="text-4xl font-bold text-gray-900 mb-6">Quick Start Guide</h1>
+    <div className="prose prose-lg max-w-none dark:prose-invert">
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Quick Start Guide</h1>
 
-      <p className="text-xl text-gray-600 mb-8">
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
         Get up and running with Omnivore in just a few minutes. This guide will
         walk you through your first crawl, data extraction, and knowledge graph
         creation.
