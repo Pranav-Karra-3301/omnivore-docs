@@ -30,7 +30,7 @@ export default function CodeBlock({ children, language = 'bash', className = '' 
       >
         {copied ? 'Copied' : 'Copy'}
       </button>
-      <pre className="rounded-lg bg-gray-900 dark:bg-gray-950 p-4 text-sm text-gray-100 overflow-x-auto">
+      <pre className="rounded-lg bg-gray-900 dark:bg-gray-800 p-4 text-sm text-gray-100 overflow-x-auto">
         <code className={`language-${language}`}>{children}</code>
       </pre>
     </div>

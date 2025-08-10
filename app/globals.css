@@ -50,7 +50,7 @@ a {
 }
 
 .prose code {
-  @apply text-red-600 bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
+  @apply text-blue-600 bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 .prose pre code {
@@ -59,11 +59,11 @@ a {
 
 /* Dark mode code highlighting */
 .dark .prose code {
-  @apply text-red-400 bg-gray-800;
+  @apply text-blue-400 bg-gray-800;
 }
 
 .dark .prose pre {
-  @apply bg-gray-950;
+  @apply bg-gray-800;
 }
 
 /* Navigation active state */
@@ -136,16 +136,16 @@ html {
   animation: spin 3s linear infinite;
 }
 
-/* Syntax highlighting overrides */
+/* GitHub-style syntax highlighting */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6b7280;
+  color: #6e7781;
 }
 
 .token.punctuation {
-  color: #9ca3af;
+  color: #8b949e;
 }
 
 .token.property,
@@ -153,9 +153,8 @@ html {
 .token.boolean,
 .token.number,
 .token.constant,
-.token.symbol,
-.token.deleted {
-  color: #ef4444;
+.token.symbol {
+  color: #0969da;
 }
 
 .token.selector,
@@ -164,7 +163,7 @@ html {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #10b981;
+  color: #0a3069;
 }
 
 .token.operator,
@@ -172,16 +171,75 @@ html {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #3b82f6;
+  color: #0969da;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #8b5cf6;
+  color: #cf222e;
 }
 
 .token.function,
 .token.class-name {
-  color: #f59e0b;
+  color: #8250df;
+}
+
+.token.deleted {
+  color: #cf222e;
+  background-color: #ffebe9;
+}
+
+/* Dark mode syntax highlighting */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.doctype,
+.dark .token.cdata {
+  color: #8b949e;
+}
+
+.dark .token.punctuation {
+  color: #7d8590;
+}
+
+.dark .token.property,
+.dark .token.tag,
+.dark .token.boolean,
+.dark .token.number,
+.dark .token.constant,
+.dark .token.symbol {
+  color: #79c0ff;
+}
+
+.dark .token.selector,
+.dark .token.attr-name,
+.dark .token.string,
+.dark .token.char,
+.dark .token.builtin,
+.dark .token.inserted {
+  color: #a5d6ff;
+}
+
+.dark .token.operator,
+.dark .token.entity,
+.dark .token.url,
+.dark .language-css .token.string,
+.dark .style .token.string {
+  color: #79c0ff;
+}
+
+.dark .token.atrule,
+.dark .token.attr-value,
+.dark .token.keyword {
+  color: #ff7b72;
+}
+
+.dark .token.function,
+.dark .token.class-name {
+  color: #d2a8ff;
+}
+
+.dark .token.deleted {
+  color: #ff7b72;
+  background-color: rgba(255, 123, 114, 0.15);
 }

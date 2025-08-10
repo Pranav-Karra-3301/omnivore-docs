@@ -74,7 +74,7 @@ export default function HomePage() {
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium mb-6">
               <Rocket className="w-4 h-4" />
-              <span>v0.1.0 - Beta</span>
+              <span>v0.1.0</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Universal Web Crawler &<br />
@@ -222,7 +222,7 @@ export default function HomePage() {
                 alt="Tokio"
                 width={48}
                 height={48}
-                className="w-12 h-12"
+                className="w-12 h-12 dark:invert"
               />
               <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Tokio</span>
             </a>
@@ -334,11 +334,21 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
             </div>
             <div className="space-y-8">
               <div>
-                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">First crawl</h4>
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-2">
+                    <Globe className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">First crawl</h4>
+                </div>
                 <CodeBlock language="bash">{`omnivore crawl https://example.com --workers 5 --depth 3`}</CodeBlock>
               </div>
               <div>
-                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Build knowledge graph</h4>
+                <div className="flex items-center mb-2">
+                  <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-2">
+                    <Network className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">Build knowledge graph</h4>
+                </div>
                 <CodeBlock language="bash">{`omnivore graph results.json --output knowledge-graph.db`}</CodeBlock>
               </div>
             </div>
@@ -387,17 +397,17 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
                 <li><Link href="/docs/installation" className="hover:text-white transition-colors">Installation</Link></li>
                 <li><Link href="/docs/quickstart" className="hover:text-white transition-colors">Quick Start</Link></li>
                 <li><Link href="/docs/configuration" className="hover:text-white transition-colors">Configuration</Link></li>
-                
+                <li><Link href="/docs/cli" className="hover:text-white transition-colors">CLI Reference</Link></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Guides</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/guides/basic-crawling" className="hover:text-white transition-colors">Basic Crawling</Link></li>
-                <li><Link href="/guides/knowledge-graphs" className="hover:text-white transition-colors">Knowledge Graphs</Link></li>
-                <li><Link href="/guides/performance" className="hover:text-white transition-colors">Performance Tuning</Link></li>
-                <li><Link href="/guides/deployment" className="hover:text-white transition-colors">Deployment</Link></li>
+                <li><Link href="/docs/crawler" className="hover:text-white transition-colors">Crawler Engine</Link></li>
+                <li><Link href="/docs/knowledge-graphs" className="hover:text-white transition-colors">Knowledge Graphs</Link></li>
+                <li><Link href="/docs/processing" className="hover:text-white transition-colors">Data Processing</Link></li>
+                <li><Link href="/docs/contributing" className="hover:text-white transition-colors">Contributing</Link></li>
               </ul>
             </div>
 
@@ -405,16 +415,16 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="https://github.com/Pranav-Karra-3301/omnivore" className="hover:text-white transition-colors">GitHub</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Discussions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contributing</a></li>
+                <li><a href="https://github.com/Pranav-Karra-3301/omnivore/issues" className="hover:text-white transition-colors">Issues</a></li>
+                <li><a href="https://github.com/Pranav-Karra-3301/omnivore/discussions" className="hover:text-white transition-colors">Discussions</a></li>
+                <li><Link href="/docs/contributing" className="hover:text-white transition-colors">Contributing</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
-              © 2024 Omnivore. Open source under MIT and Apache-2.0 licenses.
+              © 2024 Omnivore. Open source under MIT License.
             </p>
             <p className="text-gray-400 mt-4 md:mt-0">
               Built with ❤️ and Rust · <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-gray-600 hover:text-white">Developed by Pranav Karra</a>
