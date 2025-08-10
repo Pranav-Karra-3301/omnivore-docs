@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
 import ThemeToggle from '@/components/ThemeToggle'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 
 const CopyCodeClient = dynamic(() => import('@/components/CopyCodeClient'), { ssr: false })
 
