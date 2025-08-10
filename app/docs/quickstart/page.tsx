@@ -35,7 +35,7 @@ export default function QuickStartPage() {
       </div>
 
       <h2>Step 1: Your First Crawl</h2>
-      <p>Let's start with a simple website crawl.</p>
+      <p>Let&apos;s start with a simple website crawl.</p>
       <CodeBlock language="bash">{`# Basic crawl with default settings
 omnivore crawl https://httpbin.org/html`}</CodeBlock>
 
@@ -67,7 +67,7 @@ omnivore crawl https://example.com \
           </div>
           <div className="flex items-center">
             <span className="w-24 text-gray-600">Failed:</span>
-            <span className="text-gray-900">URLs that couldn't be fetched</span>
+            <span className="text-gray-900">URLs that couldn&apos;t be fetched</span>
           </div>
           <div className="flex items-center">
             <span className="w-24 text-gray-600">In Progress:</span>

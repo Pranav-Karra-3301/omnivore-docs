@@ -79,7 +79,7 @@ export default function DocsPage() {
             <h3 className="text-lg font-semibold text-gray-900">Crawler Engine</h3>
           </div>
           <p className="text-gray-600 text-sm mb-3">
-            Understand how Omnivore's parallel crawler engine works under the hood.
+            Understand how Omnivore&apos;s parallel crawler engine works under the hood.
           </p>
           <div className="flex items-center text-orange-600 text-sm font-medium group-hover:text-orange-700">
             Deep Dive <ArrowRight className="w-4 h-4 ml-1" />
@@ -117,7 +117,7 @@ export default function DocsPage() {
         </Link>
       </div>
 
-      <h2>What's Inside</h2>
+      <h2>What&apos;s Inside</h2>
       <p>This documentation covers everything you need to know about Omnivore:</p>
 
       <h3>Core Features</h3>
@@ -195,7 +195,7 @@ export default function DocsPage() {
       </div>
 
       <h2>Quick Example</h2>
-      <p>Here's a simple example to get you started:</p>
+      <p>Here&apos;s a simple example to get you started:</p>
 
       <CodeBlock language="bash">{`# Install Omnivore
 brew install omnivore
@@ -206,7 +206,7 @@ omnivore crawl https://example.com --workers 5 --depth 3
 # Build knowledge graph
 omnivore graph crawl-results.json --output knowledge-graph.db`}</CodeBlock>
 
-      <h2>What's Next?</h2>
+      <h2>What&apos;s Next?</h2>
       <ul>
         <li><strong>New to Omnivore?</strong> Start with the <Link href="/docs/installation" className="text-blue-600 hover:text-blue-700">Installation Guide</Link></li>
         <li><strong>Ready to crawl?</strong> Jump to <Link href="/docs/quickstart" className="text-blue-600 hover:text-blue-700">Quick Start</Link></li>

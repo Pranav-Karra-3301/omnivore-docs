@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { 
   Zap, 
   Globe, 
@@ -201,54 +202,66 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
             <div className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://raw.githubusercontent.com/rust-lang/rust-artwork/master/logo/rust-logo-64x64.png"
                 alt="Rust"
+                width={48}
+                height={48}
                 className="w-12 h-12"
               />
               <span className="text-sm font-medium text-gray-600">Rust</span>
             </div>
             
             <a href="https://tokio.rs/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://tokio.rs/img/icons/tokio.svg"
                 alt="Tokio"
+                width={48}
+                height={48}
                 className="w-12 h-12"
               />
               <span className="text-sm font-medium text-gray-600">Tokio</span>
             </a>
 
             <a href="https://docs.rs/reqwest" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://raw.githubusercontent.com/rust-lang/rust-artwork/master/logo/rust-logo-64x64.png"
                 alt="Reqwest (Rust)"
+                width={48}
+                height={48}
                 className="w-12 h-12"
               />
               <span className="text-sm font-medium text-gray-600">Reqwest</span>
             </a>
 
             <a href="https://serde.rs" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://raw.githubusercontent.com/rust-lang/rust-artwork/master/logo/rust-logo-64x64.png"
                 alt="Serde (Rust)"
+                width={48}
+                height={48}
                 className="w-12 h-12"
               />
               <span className="text-sm font-medium text-gray-600">Serde</span>
             </a>
 
             <div className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://avatars.githubusercontent.com/u/56036552?s=200&v=4"
                 alt="Axum"
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-lg"
               />
               <span className="text-sm font-medium text-gray-600">Axum</span>
             </div>
 
             <div className="flex flex-col items-center space-y-2">
-              <img 
+              <Image 
                 src="https://github.com/clap-rs/clap/raw/master/assets/clap.png"
                 alt="Clap"
+                width={48}
+                height={48}
                 className="w-12 h-12"
               />
               <span className="text-sm font-medium text-gray-600">Clap</span>

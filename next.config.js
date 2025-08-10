@@ -1,20 +1,46 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'raw.githubusercontent.com',
-      'github.com',
-      'avatars.githubusercontent.com',
-      'img.shields.io',
-      'docs.rs',
-      'crates.io',
-      'tokio.rs',
-      'axum.rs',
-      'serde.rs'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.shields.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'docs.rs',
+      },
+      {
+        protocol: 'https',
+        hostname: 'crates.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tokio.rs',
+      },
+      {
+        protocol: 'https',
+        hostname: 'axum.rs',
+      },
+      {
+        protocol: 'https',
+        hostname: 'serde.rs',
+      },
     ],
   },
   trailingSlash: true,
-  basePath: '',
 }
 
 module.exports = nextConfig
