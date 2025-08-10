@@ -54,7 +54,7 @@ export default function RootLayout({
   // Simple dark mode toggle (client hydrated via CopyCodeClient already)
   return (
     <html lang="en" className={`${inter.className} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-950 dark:to-black dark:text-gray-100 transition-colors">
+      <body className="min-h-screen bg-white dark:bg-gray-950 dark:text-gray-100 transition-colors">
         {children}
         <CopyCodeClient />
         <Analytics />

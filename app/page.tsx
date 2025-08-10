@@ -113,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
+      <section className="py-20 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -125,7 +125,7 @@ export default function HomePage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
@@ -145,7 +145,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-4">
                 <Network className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
@@ -155,7 +155,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-4">
                 <Cpu className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mb-4">
                 <Database className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
@@ -175,7 +175,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="card-hover bg-gray-50 dark:bg-gray-800 p-6 rounded-xl transition-colors">
+            <div className="card-hover bg-gray-50/50 dark:bg-gray-900/50 p-6 rounded-xl transition-colors border border-gray-200 dark:border-gray-800">
               <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4">
                 <Globe className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
               </div>
@@ -189,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors">
+      <section className="py-20 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -271,7 +271,7 @@ export default function HomePage() {
       </section>
 
       {/* Installation Section */}
-      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
+      <section className="py-20 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -350,7 +350,7 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-black text-white py-16 transition-colors">
+      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-16 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
