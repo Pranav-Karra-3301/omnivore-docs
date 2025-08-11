@@ -2,7 +2,7 @@ import { GitBranch, FileCode, Filter, Download, FolderOpen, Terminal, Shield, Za
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Git Repository Code Extraction')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: 'Git Repository Code Extraction - Omnivore',

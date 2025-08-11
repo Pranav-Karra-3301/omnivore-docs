@@ -2,7 +2,7 @@ import { Download, Terminal, Package, Dock, CheckCircle, AlertCircle } from 'luc
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Installation Guide')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: 'Installation Guide - Omnivore',

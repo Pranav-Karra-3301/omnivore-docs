@@ -9,12 +9,13 @@ import {
   Code, 
   ArrowRight,
   Book,
-  ExternalLink
+  ExternalLink,
+  GitBranch
 } from 'lucide-react'
 import type { Metadata } from 'next'
 
 const ogTitle = 'Documentation - Omnivore'
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Omnivore Documentation')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: ogTitle,
@@ -138,6 +139,21 @@ export default function DocsPage() {
             View Commands <ArrowRight className="w-4 h-4 ml-1" />
           </div>
         </Link>
+
+        <Link href="/docs/git-extraction" className="group block p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-xl border border-cyan-200 hover:border-cyan-300 transition-all">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
+              <GitBranch className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900">Git Extraction</h3>
+          </div>
+          <p className="text-gray-600 text-sm mb-3">
+            Extract and analyze source code from Git repositories with intelligent filtering.
+          </p>
+          <div className="flex items-center text-cyan-600 text-sm font-medium group-hover:text-cyan-700">
+            Learn More <ArrowRight className="w-4 h-4 ml-1" />
+          </div>
+        </Link>
       </div>
 
       <h2>What&apos;s Inside</h2>
@@ -146,6 +162,7 @@ export default function DocsPage() {
       <h3>Core Features</h3>
       <ul>
         <li><strong>Parallel Crawling</strong>: Async/await with Tokio runtime for maximum performance</li>
+        <li><strong>Git Repository Analysis</strong>: Extract and analyze source code with intelligent filtering</li>
         <li><strong>Smart Processing</strong>: AI-powered entity recognition and content classification</li>
         <li><strong>Knowledge Graphs</strong>: Build entity-relationship graphs automatically</li>
         <li><strong>Respectful Crawling</strong>: Built-in robots.txt compliance and rate limiting</li>
@@ -223,8 +240,11 @@ export default function DocsPage() {
       <CodeBlock language="bash">{`# Install Omnivore
 brew install omnivore
 
-# Start crawling
+# Crawl a website
 omnivore crawl https://example.com --workers 5 --depth 3
+
+# Extract code from a Git repository
+omnivore git https://github.com/user/repo --output code-analysis.txt
 
 # Build knowledge graph
 omnivore graph crawl-results.json --output knowledge-graph.db`}</CodeBlock>

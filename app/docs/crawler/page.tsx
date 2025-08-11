@@ -2,7 +2,7 @@ import { Globe, Cpu, Shield, Zap, Settings, Database, Network, GitBranch } from 
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Crawler Engine')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: 'Crawler Engine - Omnivore',

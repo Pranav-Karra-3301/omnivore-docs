@@ -10,7 +10,7 @@ import {
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Quick Start Guide')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: 'Quick Start Guide - Omnivore',
@@ -130,6 +130,20 @@ omnivore graph results.json --output knowledge-graph.db
 omnivore graph-query knowledge-graph.db \
   --query "MATCH (n:Website)-[r:LINKS_TO]->(m:Website) RETURN n, r, m LIMIT 10"`}</CodeBlock>
 
+      <h2>Step 4: Analyze Git Repositories</h2>
+      <p>Extract and analyze source code from Git repositories with intelligent filtering.</p>
+      <CodeBlock language="bash">{`# Analyze a GitHub repository
+omnivore git https://github.com/rust-lang/cargo --output cargo-analysis.txt
+
+# Analyze your local project
+omnivore git . --output my-project.txt
+
+# Extract specific file types
+omnivore git ./my-project --only "*.py,*.md" --output python-docs.txt
+
+# Exclude test files
+omnivore git ./my-project --exclude "**/tests/**" --output src-only.txt`}</CodeBlock>
+
       <h2>Common Use Cases</h2>
       <h3>1. News Site Monitoring</h3>
       <CodeBlock language="bash">{`# Monitor a news website for new articles
@@ -164,6 +178,21 @@ omnivore crawl https://arxiv.org/list/cs.AI/recent \
 omnivore graph papers.json \
   --schema academic-papers \
   --output citation-network.db`}</CodeBlock>
+
+      <h3>4. Code Repository Analysis</h3>
+      <CodeBlock language="bash">{`# Analyze open source project structure
+omnivore git https://github.com/facebook/react --output react-codebase.txt
+
+# Extract documentation from a project
+omnivore git ./my-project --only "*.md,*.rst,*.txt" --output docs.txt
+
+# Generate code report with JSON output
+omnivore git ./my-project --json --output codebase.json
+
+# Analyze multiple repositories for comparison
+for repo in "rust-lang/cargo" "golang/go" "nodejs/node"; do
+  omnivore git https://github.com/$repo --output "$\{repo//\//-\}.txt"
+done`}</CodeBlock>
 
       <h2>Configuration Examples</h2>
       <h3>Basic Configuration File</h3>

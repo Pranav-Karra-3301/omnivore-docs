@@ -2,7 +2,7 @@ import { FileText, Filter, Cpu, Database, Search, Code, Layers, Zap } from 'luci
 import CodeBlock from '@/components/CodeBlock'
 import type { Metadata } from 'next'
 
-const ogImageUrl = `/api/og?title=${encodeURIComponent('Data Processing Pipeline')}`
+const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
   title: 'Data Processing Pipeline - Omnivore',
