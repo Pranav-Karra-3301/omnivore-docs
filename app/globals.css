@@ -894,7 +894,7 @@ pre code {
 
 /* Hero Section */
 .srcl-hero {
-  padding: calc(var(--line-height) * 4) 2ch;
+  padding: calc(var(--line-height) * 2) 2ch;
   text-align: center;
   border-bottom: 1px solid var(--theme-border);
 }
@@ -904,13 +904,13 @@ pre code {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  margin-bottom: var(--line-height);
+  margin-bottom: calc(var(--line-height) * 0.5);
 }
 
 .srcl-hero-subtitle {
   color: var(--theme-foreground-secondary);
   max-width: 64ch;
-  margin: 0 auto calc(var(--line-height) * 2);
+  margin: 0 auto var(--line-height);
 }
 
 .srcl-hero-actions {
@@ -987,13 +987,34 @@ pre code {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .srcl-nav-right .srcl-nav-link:not(:last-child) {
+    display: none;
+  }
+
   .srcl-footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .srcl-footer-bottom {
+    flex-direction: column;
+    gap: calc(var(--line-height) * 0.5);
   }
 
   .srcl-grid-2,
   .srcl-grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .srcl-hero {
+    padding: var(--line-height) 1ch;
+  }
+
+  .srcl-hero-title {
+    letter-spacing: 0.1em;
+  }
+
+  .srcl-section-header {
+    margin: var(--line-height) 0 calc(var(--line-height) * 0.5);
   }
 
   .srcl-drawer-side {
@@ -1008,6 +1029,48 @@ pre code {
 
   .srcl-drawer-side.open {
     transform: translateX(0);
+  }
+
+  .srcl-main {
+    padding: var(--line-height) 1ch;
+  }
+
+  .srcl-feature {
+    padding: calc(var(--line-height) * 0.5) 1ch;
+  }
+
+  /* Two-column layout stacks on mobile */
+  .srcl-two-col {
+    flex-direction: column !important;
+  }
+
+  .srcl-two-col > section {
+    border-right: none !important;
+    border-bottom: 1px solid var(--theme-border);
+  }
+
+  .srcl-two-col > section:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .srcl-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .srcl-button-group {
+    flex-wrap: wrap;
+  }
+
+  .srcl-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .srcl-hero-actions .srcl-button,
+  .srcl-hero-actions .srcl-button-secondary {
+    width: 100%;
   }
 }
 

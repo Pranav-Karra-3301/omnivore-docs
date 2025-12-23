@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ThemeToggle from '@/components/ThemeToggle'
 
 const navigation = [
@@ -38,99 +38,166 @@ export default function DocsLayout({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
-  const [sidebarExpanded, setSidebarExpanded] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+      if (window.innerWidth > 768) {
+        setSidebarOpen(true)
+      }
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Close sidebar on mobile when navigating
+  useEffect(() => {
+    if (isMobile) {
+      setSidebarOpen(false)
+    }
+  }, [pathname, isMobile])
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
-      {/* Drawer */}
-      <div className="srcl-drawer" style={{ position: 'fixed', top: 0, left: 0, bottom: 0 }}>
-        {/* Sidebar */}
-        {sidebarExpanded && (
-          <aside className="srcl-drawer-side" style={{ overflowY: 'auto' }}>
-            <div className="srcl-sidebar">
-              {/* Header */}
-              <div style={{ padding: '0 1ch', marginBottom: 'calc(var(--line-height) * 1.5)' }}>
-                <Link href="/" className="srcl-nav-logo" style={{ display: 'block', padding: '0' }}>
-                  OMNIVORE
-                </Link>
-                <div style={{ marginTop: 'calc(var(--line-height) * 0.5)', color: 'var(--theme-foreground-secondary)' }}>
-                  <Link href="/">Home</Link>
-                  <span style={{ padding: '0 0.5ch', color: 'var(--theme-foreground-secondary)' }}>|</span>
-                  <a href="https://github.com/Pranav-Karra-3301/omnivore" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                  </a>
-                </div>
-              </div>
+      {/* Mobile overlay */}
+      {isMobile && sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            zIndex: 40,
+          }}
+        />
+      )}
 
-              {/* Divider */}
-              <div className="srcl-divider" style={{ margin: '0 0 calc(var(--line-height) * 1)' }} />
-
-              {/* Navigation */}
-              <nav>
-                {navigation.map((section) => (
-                  <div key={section.name} className="srcl-sidebar-section">
-                    <div className="srcl-sidebar-title">{section.name}</div>
-                    <ul style={{ listStyle: 'none' }}>
-                      {section.items.map((item) => {
-                        const isActive = pathname === item.href
-                        return (
-                          <li key={item.name}>
-                            <Link
-                              href={item.href}
-                              className={`srcl-sidebar-item ${isActive ? 'active' : ''}`}
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </div>
-                ))}
-              </nav>
-
-              {/* Footer */}
-              <div style={{
-                marginTop: 'calc(var(--line-height) * 2)',
-                padding: '0 1ch',
-                color: 'var(--theme-foreground-secondary)',
-              }}>
-                <div className="srcl-divider" style={{ margin: '0 0 calc(var(--line-height) * 1)' }} />
-                <a
-                  href="https://github.com/Pranav-Karra-3301/omnivore"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: 'block', marginBottom: 'calc(var(--line-height) * 0.5)' }}
+      {/* Sidebar */}
+      <aside
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: isMobile ? '80vw' : '24ch',
+          maxWidth: '300px',
+          backgroundColor: 'var(--theme-background)',
+          borderRight: '1px solid var(--theme-border)',
+          transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 200ms ease',
+          zIndex: 50,
+          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div className="srcl-sidebar" style={{ flex: 1 }}>
+          {/* Header */}
+          <div style={{ padding: '0 1ch', marginBottom: 'var(--line-height)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Link href="/" className="srcl-nav-logo" style={{ padding: 0 }}>
+                OMNIVORE
+              </Link>
+              {isMobile && (
+                <button
+                  onClick={() => setSidebarOpen(false)}
+                  className="srcl-drawer-action"
+                  style={{ width: 'auto', padding: '0 1ch' }}
                 >
-                  GitHub
-                </a>
-                <a
-                  href="https://omnivore.readthedocs.io/en/latest/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ReadTheDocs
-                </a>
-              </div>
+                  X
+                </button>
+              )}
             </div>
-          </aside>
-        )}
+            <div style={{ marginTop: 'calc(var(--line-height) * 0.5)', color: 'var(--theme-foreground-secondary)' }}>
+              <Link href="/">Home</Link>
+              <span style={{ padding: '0 0.5ch' }}>|</span>
+              <a href="https://github.com/Pranav-Karra-3301/omnivore" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </div>
+          </div>
 
-        {/* Toggle */}
-        <div className="srcl-drawer-toggle">
-          <button
-            className="srcl-drawer-action"
-            onClick={() => setSidebarExpanded(!sidebarExpanded)}
-            aria-label={sidebarExpanded ? 'Collapse sidebar' : 'Expand sidebar'}
-          >
-            {sidebarExpanded ? '\u2190' : '\u2192'}
-          </button>
+          <div className="srcl-divider" style={{ margin: '0' }} />
+
+          {/* Navigation */}
+          <nav style={{ marginTop: 'var(--line-height)' }}>
+            {navigation.map((section) => (
+              <div key={section.name} className="srcl-sidebar-section">
+                <div className="srcl-sidebar-title">{section.name}</div>
+                <ul style={{ listStyle: 'none' }}>
+                  {section.items.map((item) => {
+                    const isActive = pathname === item.href
+                    return (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className={`srcl-sidebar-item ${isActive ? 'active' : ''}`}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))}
+          </nav>
+
+          {/* Footer */}
+          <div style={{
+            marginTop: 'auto',
+            padding: 'var(--line-height) 1ch',
+            color: 'var(--theme-foreground-secondary)',
+            borderTop: '1px solid var(--theme-border)',
+          }}>
+            <a
+              href="https://github.com/Pranav-Karra-3301/omnivore"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'block', marginBottom: 'calc(var(--line-height) * 0.5)' }}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://omnivore.readthedocs.io/en/latest/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ReadTheDocs
+            </a>
+          </div>
         </div>
+      </aside>
+
+      {/* Toggle button (always visible) */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: sidebarOpen && !isMobile ? '24ch' : 0,
+          bottom: 0,
+          width: '3ch',
+          backgroundColor: 'var(--theme-background-input)',
+          borderRight: '1px solid var(--theme-border)',
+          zIndex: 45,
+          transition: 'left 200ms ease',
+        }}
+      >
+        <button
+          className="srcl-drawer-action"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
+        >
+          {sidebarOpen ? '\u2190' : '\u2192'}
+        </button>
       </div>
 
       {/* Main Content */}
       <div style={{
-        marginLeft: sidebarExpanded ? 'calc(24ch + 3ch)' : '3ch',
+        marginLeft: sidebarOpen && !isMobile ? 'calc(24ch + 3ch)' : '3ch',
         flex: 1,
         minHeight: '100vh',
         display: 'flex',
@@ -140,7 +207,6 @@ export default function DocsLayout({
         {/* Header */}
         <header className="srcl-nav" style={{ position: 'sticky', top: 0, zIndex: 30 }}>
           <div className="srcl-nav-left">
-            {/* Breadcrumbs */}
             <nav className="srcl-breadcrumbs" style={{ margin: 0 }}>
               <span className="srcl-breadcrumb-item">
                 <Link href="/docs">docs</Link>
@@ -175,18 +241,14 @@ export default function DocsLayout({
 
           {/* Footer */}
           <div style={{
-            marginTop: 'calc(var(--line-height) * 3)',
+            marginTop: 'calc(var(--line-height) * 2)',
             paddingTop: 'var(--line-height)',
             borderTop: '1px solid var(--theme-border)',
             color: 'var(--theme-foreground-secondary)',
           }}>
             Built with Rust.{' '}
-            <a
-              href="https://pranavkarra.me"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Developed by Pranav Karra
+            <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer">
+              Pranav Karra
             </a>
           </div>
         </main>
