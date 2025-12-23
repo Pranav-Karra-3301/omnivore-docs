@@ -1,17 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import dynamic from 'next/dynamic'
-import ThemeToggle from '@/components/ThemeToggle'
 import { Analytics } from '@vercel/analytics/next'
-
-const CopyCodeClient = dynamic(() => import('@/components/CopyCodeClient'), { ssr: false })
-
-const inter = Inter({ subsets: ['latin'] })
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin'],
-  variable: '--font-mono'
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ov.pranavkarra.me'),
@@ -32,7 +21,7 @@ export const metadata: Metadata = {
     url: 'https://ov.pranavkarra.me',
     images: [
       {
-        url: 'https://ov.pranavkarra.me/api/og?title=Omnivore&description=Universal%20Web%20Crawler%20%26%20Knowledge%20Graph',
+        url: 'https://ov.pranavkarra.me/docs_preview.png',
         width: 1200,
         height: 630,
         alt: 'Omnivore Web Crawler',
@@ -44,14 +33,14 @@ export const metadata: Metadata = {
     title: 'Omnivore - Universal Web Crawler & Knowledge Graph',
     description: 'High-performance, parallel web crawler and knowledge graph system built in Rust.',
     creator: '@pranavkarra',
-    images: ['https://ov.pranavkarra.me/api/og?title=Omnivore&description=Universal%20Web%20Crawler%20%26%20Knowledge%20Graph'],
+    images: ['https://ov.pranavkarra.me/docs_preview.png'],
   },
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0ea5e9',
+  themeColor: '#0A0A0A',
 }
 
 export default function RootLayout({
@@ -59,14 +48,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Simple dark mode toggle (client hydrated via CopyCodeClient already)
   return (
-    <html lang="en" className={`${inter.className} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen bg-white dark:bg-gray-950 dark:text-gray-100 transition-colors">
+    <html lang="en">
+      <body>
         {children}
-        <CopyCodeClient />
         <Analytics />
-        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');} catch{} })();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='dark') document.documentElement.classList.add('dark');} catch{} })();` }} />
       </body>
     </html>
   )

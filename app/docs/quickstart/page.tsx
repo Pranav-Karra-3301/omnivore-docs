@@ -1,13 +1,6 @@
-import {
-  Zap,
-  Globe,
-  Network,
-  BarChart3,
-  Play,
-  CheckCircle,
-  ArrowRight,
-} from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import Alert from '@/components/Alert'
+import Card from '@/components/Card'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -18,41 +11,25 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Quick Start Guide - Omnivore',
     description: 'Get up and running with Omnivore in just a few minutes.',
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Quick Start Guide - Omnivore',
-      },
-    ],
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: 'Quick Start Guide - Omnivore' }],
   },
-};
+}
 
 export default function QuickStartPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Quick Start Guide</h1>
+    <div>
+      <h1>QUICK START GUIDE</h1>
 
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+      <p>
         Get up and running with Omnivore in just a few minutes. This guide will
         walk you through your first crawl, data extraction, and knowledge graph
         creation.
       </p>
 
-      <div className="not-prose bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6 mb-8">
-        <div className="flex items-center mb-3">
-          <Zap className="w-6 h-6 text-blue-600 mr-2" />
-          <h3 className="text-lg font-semibold text-blue-900">Prerequisites</h3>
-        </div>
-        <p className="text-blue-800">
-          Make sure you have Omnivore installed. If not, check the
-          <a href="/docs/installation" className="text-blue-600 hover:text-blue-700 ml-1">
-            Installation Guide
-          </a>
-          first.
-        </p>
-      </div>
+      <Alert variant="info" title="Prerequisites">
+        Make sure you have Omnivore installed. If not, check the{' '}
+        <a href="/docs/installation">Installation Guide</a> first.
+      </Alert>
 
       <h2>Step 1: Your First Crawl</h2>
       <p>Let&apos;s start with a simple website crawl.</p>
@@ -61,10 +38,10 @@ omnivore crawl https://httpbin.org/html`}</CodeBlock>
 
       <h3>Add More Options</h3>
       <CodeBlock language="bash">{`# Crawl with more workers and depth
-omnivore crawl https://example.com \
-  --workers 5 \
-  --depth 3 \
-  --delay 200 \
+omnivore crawl https://example.com \\
+  --workers 5 \\
+  --depth 3 \\
+  --delay 200 \\
   --output results.json
 
 # This will:
@@ -74,30 +51,38 @@ omnivore crawl https://example.com \
 # - Save results to results.json`}</CodeBlock>
 
       <h3>Understanding the Output</h3>
-      <div className="not-prose bg-gray-50 rounded-lg p-4 my-6">
-        <h4 className="font-medium text-gray-900 mb-3">Output Explained</h4>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center">
-            <span className="w-24 text-gray-600">Crawled:</span>
-            <span className="text-gray-900">Total URLs discovered and processed</span>
-          </div>
-          <div className="flex items-center">
-            <span className="w-24 text-gray-600">Success:</span>
-            <span className="text-gray-900">URLs successfully fetched and parsed</span>
-          </div>
-          <div className="flex items-center">
-            <span className="w-24 text-gray-600">Failed:</span>
-            <span className="text-gray-900">URLs that couldn&apos;t be fetched</span>
-          </div>
-          <div className="flex items-center">
-            <span className="w-24 text-gray-600">In Progress:</span>
-            <span className="text-gray-900">URLs currently being processed</span>
-          </div>
-        </div>
-      </div>
+      <Card title="Output Explained">
+        <table className="srcl-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Crawled</td>
+              <td>Total URLs discovered and processed</td>
+            </tr>
+            <tr>
+              <td>Success</td>
+              <td>URLs successfully fetched and parsed</td>
+            </tr>
+            <tr>
+              <td>Failed</td>
+              <td>URLs that couldn&apos;t be fetched</td>
+            </tr>
+            <tr>
+              <td>In Progress</td>
+              <td>URLs currently being processed</td>
+            </tr>
+          </tbody>
+        </table>
+      </Card>
 
       <h2>Step 2: Parse Specific Content</h2>
       <p>Extract specific data from HTML using custom parsing rules.</p>
+
       <h3>Create a Parser Configuration</h3>
       <CodeBlock language="bash">{`# Create a parser config file
 cat > parser-rules.yaml << EOF
@@ -127,7 +112,7 @@ curl -s https://example.com | omnivore parse --rules parser-rules.yaml`}</CodeBl
 omnivore graph results.json --output knowledge-graph.db
 
 # Query the knowledge graph
-omnivore graph-query knowledge-graph.db \
+omnivore graph-query knowledge-graph.db \\
   --query "MATCH (n:Website)-[r:LINKS_TO]->(m:Website) RETURN n, r, m LIMIT 10"`}</CodeBlock>
 
       <h2>Step 4: Analyze Git Repositories</h2>
@@ -145,12 +130,13 @@ omnivore git ./my-project --only "*.py,*.md" --output python-docs.txt
 omnivore git ./my-project --exclude "**/tests/**" --output src-only.txt`}</CodeBlock>
 
       <h2>Common Use Cases</h2>
+
       <h3>1. News Site Monitoring</h3>
       <CodeBlock language="bash">{`# Monitor a news website for new articles
-omnivore crawl https://news.ycombinator.com \
-  --workers 3 \
-  --depth 2 \
-  --respect-robots \
+omnivore crawl https://news.ycombinator.com \\
+  --workers 3 \\
+  --depth 2 \\
+  --respect-robots \\
   --output hn-$(date +%Y%m%d).json
 
 # Extract article data with custom rules
@@ -158,10 +144,10 @@ omnivore parse hn-*.json --rules news-extractor.yaml`}</CodeBlock>
 
       <h3>2. E-commerce Product Scraping</h3>
       <CodeBlock language="bash">{`# Scrape product information (respect rate limits!)
-omnivore crawl https://example-store.com/products \
-  --workers 2 \
-  --delay 1000 \
-  --depth 3 \
+omnivore crawl https://example-store.com/products \\
+  --workers 2 \\
+  --delay 1000 \\
+  --depth 3 \\
   --output products.json
 
 # Parse product data
@@ -169,14 +155,14 @@ omnivore parse products.json --rules product-extractor.yaml`}</CodeBlock>
 
       <h3>3. Research Paper Collection</h3>
       <CodeBlock language="bash">{`# Collect academic papers
-omnivore crawl https://arxiv.org/list/cs.AI/recent \
-  --workers 5 \
-  --depth 2 \
+omnivore crawl https://arxiv.org/list/cs.AI/recent \\
+  --workers 5 \\
+  --depth 2 \\
   --output papers.json
 
 # Build citation network
-omnivore graph papers.json \
-  --schema academic-papers \
+omnivore graph papers.json \\
+  --schema academic-papers \\
   --output citation-network.db`}</CodeBlock>
 
       <h3>4. Code Repository Analysis</h3>
@@ -191,14 +177,13 @@ omnivore git ./my-project --json --output codebase.json
 
 # Analyze multiple repositories for comparison
 for repo in "rust-lang/cargo" "golang/go" "nodejs/node"; do
-  omnivore git https://github.com/$repo --output "$\{repo//\//-\}.txt"
+  omnivore git https://github.com/$repo --output "\${repo//\\//-}.txt"
 done`}</CodeBlock>
 
       <h2>Configuration Examples</h2>
+
       <h3>Basic Configuration File</h3>
-      <p>
-        Create <code>~/.config/omnivore/crawler.toml</code>:
-      </p>
+      <p>Create <code>~/.config/omnivore/crawler.toml</code>:</p>
       <CodeBlock language="toml">{`[crawler]
 max_workers = 10
 max_depth = 5
@@ -234,6 +219,7 @@ delay_ms = 1000
 max_depth = 3`}</CodeBlock>
 
       <h2>Monitoring and Statistics</h2>
+
       <h3>View Crawl Statistics</h3>
       <CodeBlock language="bash">{`# Current session stats
 omnivore stats
@@ -249,48 +235,19 @@ omnivore stats --export stats.csv`}</CodeBlock>
 omnivore crawl https://example.com --watch`}</CodeBlock>
 
       <h2>Tips for Success</h2>
-      <div className="not-prose bg-yellow-50 border border-yellow-200 rounded-lg p-6 my-8">
-        <h3 className="text-lg font-semibold text-yellow-900 mb-4">💡 Pro Tips</h3>
-        <ul className="space-y-3 text-yellow-800">
-          <li className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
-            <span>
-              <strong>Start small:</strong> Begin with low depth and workers, then scale up
-            </span>
-          </li>
-          <li className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
-            <span>
-              <strong>Respect robots.txt:</strong> Always enable robots.txt compliance
-            </span>
-          </li>
-          <li className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
-            <span>
-              <strong>Monitor resources:</strong> Watch CPU and memory usage during crawls
-            </span>
-          </li>
-          <li className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
-            <span>
-              <strong>Use delays:</strong> Be respectful with request timing
-            </span>
-          </li>
-          <li className="flex items-start">
-            <CheckCircle className="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
-            <span>
-              <strong>Save configurations:</strong> Create reusable config files for common patterns
-            </span>
-          </li>
+      <Alert variant="warning" title="Pro Tips">
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{ marginBottom: '8px' }}>▪ <strong>Start small:</strong> Begin with low depth and workers, then scale up</li>
+          <li style={{ marginBottom: '8px' }}>▪ <strong>Respect robots.txt:</strong> Always enable robots.txt compliance</li>
+          <li style={{ marginBottom: '8px' }}>▪ <strong>Monitor resources:</strong> Watch CPU and memory usage during crawls</li>
+          <li style={{ marginBottom: '8px' }}>▪ <strong>Use delays:</strong> Be respectful with request timing</li>
+          <li style={{ marginBottom: '8px' }}>▪ <strong>Save configurations:</strong> Create reusable config files for common patterns</li>
         </ul>
-      </div>
+      </Alert>
 
       <p>
         Ready to dive deeper? Check out the{' '}
-        <a href="/docs/configuration" className="text-blue-600 hover:text-blue-700">
-          Configuration Guide
-        </a>{' '}
-        to customize Omnivore for your specific needs.
+        <a href="/docs/configuration">Configuration Guide</a> to customize Omnivore for your specific needs.
       </p>
     </div>
   )

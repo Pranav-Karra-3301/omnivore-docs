@@ -1,38 +1,59 @@
-"use client"
+'use client'
 
-import React, { useState } from 'react'
+import * as React from 'react'
 
-type CodeBlockProps = {
+interface CodeBlockProps {
   children: string
   language?: string
-  className?: string
+  showLineNumbers?: boolean
 }
 
-export default function CodeBlock({ children, language = 'bash', className = '' }: CodeBlockProps) {
-  const [copied, setCopied] = useState(false)
+function leftPad(str: string, length: number): string {
+  return str.padStart(length, ' ')
+}
+
+export default function CodeBlock({
+  children,
+  language = 'text',
+  showLineNumbers = true
+}: CodeBlockProps) {
+  const [copied, setCopied] = React.useState(false)
+  const lines = String(children).split('\n')
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(children)
       setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
-    } catch (error) {
-      console.error('Copy failed', error)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
     }
   }
 
   return (
-    <div className={`relative group ${className}`}>
-      <button
-        onClick={handleCopy}
-        className="absolute right-3 top-3 z-10 rounded-md border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-200 shadow-sm backdrop-blur hover:bg-white dark:hover:bg-gray-900 focus:outline-none transition-colors"
-        aria-label="Copy code"
-      >
-        {copied ? 'Copied' : 'Copy'}
-      </button>
-      <pre className="rounded-lg bg-gray-900 dark:bg-gray-800 p-4 text-sm text-gray-100 overflow-x-auto">
-        <code className={`language-${language}`}>{children}</code>
-      </pre>
+    <div className="srcl-code-block">
+      <div className="srcl-code-header">
+        <span>{language.toUpperCase()}</span>
+        <button
+          onClick={handleCopy}
+          className="srcl-copy-button"
+          aria-label="Copy code"
+        >
+          {copied ? 'COPIED!' : 'COPY'}
+        </button>
+      </div>
+      <div className="srcl-code-content">
+        {lines.map((line, index) => (
+          <div key={index} className="srcl-code-line">
+            {showLineNumbers && (
+              <span className="srcl-code-number">
+                {leftPad(String(index + 1), 3)}
+              </span>
+            )}
+            <span className="srcl-code-text">{line}</span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
