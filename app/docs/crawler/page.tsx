@@ -24,25 +24,25 @@ export default function CrawlerPage() {
         It features intelligent URL frontier management, politeness controls, and automatic rate limiting.
       </p>
 
-      <div className="srcl-grid srcl-grid-3" style={{ marginTop: '24px', marginBottom: '24px' }}>
+      <div className="srcl-grid srcl-grid-3" style={{ marginTop: 'calc(var(--line-height) * 1.5)', marginBottom: 'calc(var(--line-height) * 1.5)' }}>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">⚡</div>
+          <div className="srcl-feature-icon">{'>>'}</div>
           <div className="srcl-feature-title">10,000+ pages/min</div>
           <p className="srcl-feature-description">Process thousands of pages per minute with parallel workers</p>
         </div>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">🛡</div>
+          <div className="srcl-feature-icon">{'[]'}</div>
           <div className="srcl-feature-title">Respectful</div>
           <p className="srcl-feature-description">Built-in robots.txt compliance and rate limiting</p>
         </div>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">🔗</div>
+          <div className="srcl-feature-icon">{'::'}</div>
           <div className="srcl-feature-title">Smart Frontier</div>
           <p className="srcl-feature-description">Intelligent URL management with priority queuing</p>
         </div>
       </div>
 
-      <h2>Architecture Overview</h2>
+      <h2>ARCHITECTURE OVERVIEW</h2>
 
       <h3>Core Components</h3>
 
@@ -86,7 +86,7 @@ pub struct WorkerConfig {
         <li><strong>JavaScript Support:</strong> Optional headless browser for JS-heavy sites</li>
       </ul>
 
-      <h2>Configuration</h2>
+      <h2>CONFIGURATION</h2>
 
       <h3>Basic Configuration</h3>
       <CodeBlock language="toml">{`[crawler]
@@ -130,7 +130,7 @@ extract_metadata = true
 checkpoint_interval = 1000
 compression = "gzip"`}</CodeBlock>
 
-      <h2>Usage Examples</h2>
+      <h2>USAGE EXAMPLES</h2>
 
       <h3>Basic Crawl</h3>
       <CodeBlock language="bash">{`# Simple crawl with default settings
@@ -185,7 +185,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }`}</CodeBlock>
 
-      <h2>Performance Tuning</h2>
+      <h2>PERFORMANCE TUNING</h2>
 
       <h3>Worker Optimization</h3>
       <p>The number of workers should be tuned based on your system resources and target sites:</p>
@@ -204,20 +204,20 @@ omnivore crawl https://slow-site.com --workers 100
 # Memory-constrained environment
 omnivore crawl https://example.com --workers 5 --max-page-size 1048576`}</CodeBlock>
 
-      <h2>Best Practices</h2>
+      <h2>BEST PRACTICES</h2>
       <Alert variant="info" title="Recommended Settings">
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li>▪ Start with low workers (5-10) and increase gradually</li>
-          <li>▪ Always respect robots.txt unless you have permission</li>
-          <li>▪ Use appropriate delays (1-2 seconds minimum)</li>
-          <li>▪ Set reasonable depth limits (3-5 for most sites)</li>
-          <li>▪ Monitor memory usage and adjust workers accordingly</li>
-          <li>▪ Use checkpointing for large crawls</li>
-          <li>▪ Implement proper error handling and logging</li>
+          <li>- Start with low workers (5-10) and increase gradually</li>
+          <li>- Always respect robots.txt unless you have permission</li>
+          <li>- Use appropriate delays (1-2 seconds minimum)</li>
+          <li>- Set reasonable depth limits (3-5 for most sites)</li>
+          <li>- Monitor memory usage and adjust workers accordingly</li>
+          <li>- Use checkpointing for large crawls</li>
+          <li>- Implement proper error handling and logging</li>
         </ul>
       </Alert>
 
-      <h2>Troubleshooting</h2>
+      <h2>TROUBLESHOOTING</h2>
 
       <h3>Common Issues</h3>
 

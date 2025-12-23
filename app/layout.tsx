@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0A0A0A',
+  themeColor: '#000000',
 }
 
 export default function RootLayout({
@@ -53,7 +53,7 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
-        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='dark') document.documentElement.classList.add('dark');} catch{} })();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(() => {try {const t=localStorage.getItem('theme'); if (t==='light') document.documentElement.classList.add('light');} catch{} })();` }} />
       </body>
     </html>
   )

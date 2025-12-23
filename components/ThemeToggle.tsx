@@ -3,25 +3,25 @@
 import * as React from 'react'
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = React.useState(false)
+  const [isLight, setIsLight] = React.useState(false)
 
   React.useEffect(() => {
     try {
       const stored = localStorage.getItem('theme')
-      const shouldBeDark = stored === 'dark'
-      setIsDark(shouldBeDark)
-      document.documentElement.classList.toggle('dark', shouldBeDark)
+      const shouldBeLight = stored === 'light'
+      setIsLight(shouldBeLight)
+      document.documentElement.classList.toggle('light', shouldBeLight)
     } catch {
       // ignore
     }
   }, [])
 
   const toggleTheme = () => {
-    const newValue = !isDark
-    setIsDark(newValue)
-    document.documentElement.classList.toggle('dark', newValue)
+    const newValue = !isLight
+    setIsLight(newValue)
+    document.documentElement.classList.toggle('light', newValue)
     try {
-      localStorage.setItem('theme', newValue ? 'dark' : 'light')
+      localStorage.setItem('theme', newValue ? 'light' : 'dark')
     } catch {
       // ignore
     }
@@ -30,11 +30,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="srcl-button-secondary"
-      style={{ padding: '4px 12px', fontSize: '11px' }}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="srcl-nav-link"
+      aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
     >
-      {isDark ? '[ LIGHT ]' : '[ DARK ]'}
+      {isLight ? 'DARK' : 'LIGHT'}
     </button>
   )
 }

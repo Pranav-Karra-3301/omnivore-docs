@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import CodeBlock from '@/components/CodeBlock'
 import ThemeToggle from '@/components/ThemeToggle'
 
@@ -8,19 +7,13 @@ export default function HomePage() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Navigation */}
       <nav className="srcl-nav">
-        <div className="srcl-nav-logo">
-          <Image
-            src="/logo.png"
-            alt="Omnivore Logo"
-            width={28}
-            height={28}
-            style={{ width: '28px', height: '28px' }}
-          />
-          <span>OMNIVORE</span>
-        </div>
-        <div className="srcl-nav-links md:flex" style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+        <Link href="/" className="srcl-nav-logo">
+          OMNIVORE
+        </Link>
+        <div className="srcl-nav-children" />
+        <div className="srcl-nav-right" style={{ display: 'flex', alignItems: 'center' }}>
           <Link href="/docs" className="srcl-nav-link">
-            Documentation
+            DOCS
           </Link>
           <a
             href="https://omnivore.readthedocs.io/en/latest/"
@@ -28,7 +21,7 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="srcl-nav-link"
           >
-            ReadTheDocs
+            READTHEDOCS
           </a>
           <a
             href="https://github.com/Pranav-Karra-3301/omnivore"
@@ -36,25 +29,24 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="srcl-nav-link"
           >
-            GitHub
+            GITHUB
           </a>
           <ThemeToggle />
-          <Link href="/docs/installation" className="srcl-button">
-            Get Started
-          </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="srcl-hero">
-        <div className="srcl-container">
-          <div className="srcl-badge srcl-badge-primary" style={{ marginBottom: '24px' }}>
-            V0.1.0 - OPEN SOURCE
+        <div style={{ maxWidth: '64ch', margin: '0 auto' }}>
+          <div className="srcl-button-group" style={{ marginBottom: 'calc(var(--line-height) * 2)', justifyContent: 'center', display: 'inline-flex' }}>
+            <span className="srcl-button-group-item active">V0.1.0</span>
+            <span className="srcl-button-group-item">OPEN SOURCE</span>
+            <span className="srcl-button-group-item">RUST</span>
           </div>
           <h1 className="srcl-hero-title">
             UNIVERSAL WEB CRAWLER
             <br />
-            & KNOWLEDGE GRAPH
+            AND KNOWLEDGE GRAPH
           </h1>
           <p className="srcl-hero-subtitle">
             High-performance, parallel web crawler and knowledge graph system built in Rust.
@@ -62,204 +54,124 @@ export default function HomePage() {
           </p>
           <div className="srcl-hero-actions">
             <Link href="/docs/installation" className="srcl-button">
-              {'>_'} INSTALL
+              INSTALL
             </Link>
-            <a
-              href="https://omnivore.readthedocs.io/en/latest/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="srcl-button srcl-button-secondary"
-            >
-              READTHEDOCS
-            </a>
+            <Link href="/docs" className="srcl-button-secondary">
+              DOCUMENTATION
+            </Link>
             <a
               href="https://github.com/Pranav-Karra-3301/omnivore"
               target="_blank"
               rel="noopener noreferrer"
-              className="srcl-button srcl-button-secondary"
+              className="srcl-button-secondary"
             >
-              VIEW SOURCE
+              SOURCE
             </a>
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="srcl-section-header">
+        <span>FEATURES</span>
+      </div>
 
       {/* Features Section */}
-      <section style={{ padding: '48px 16px' }}>
-        <div className="srcl-container">
-          <h2 style={{ textAlign: 'center', marginBottom: '8px' }}>BUILT FOR SCALE AND PERFORMANCE</h2>
-          <p style={{ textAlign: 'center', marginBottom: '48px' }}>
-            Omnivore combines cutting-edge Rust performance with intelligent crawling strategies
-          </p>
-
-          <div className="srcl-grid srcl-grid-3" style={{ gap: '16px' }}>
+      <section style={{ padding: 'calc(var(--line-height) * 2) 2ch' }}>
+        <div style={{ maxWidth: '80ch', margin: '0 auto' }}>
+          <div className="srcl-grid srcl-grid-3">
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">⚡</div>
-              <div className="srcl-feature-title">Lightning Fast</div>
+              <div className="srcl-feature-icon">{'>>'}</div>
+              <div className="srcl-feature-title">Fast</div>
               <p className="srcl-feature-description">
-                Process 10,000+ pages per minute with Tokio async runtime and parallel processing
+                Process 10,000+ pages per minute with Tokio async runtime
               </p>
             </div>
 
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">🛡</div>
-              <div className="srcl-feature-title">Respectful Crawling</div>
+              <div className="srcl-feature-icon">{'[]'}</div>
+              <div className="srcl-feature-title">Respectful</div>
               <p className="srcl-feature-description">
-                Built-in robots.txt compliance and politeness engine with rate limiting
+                Built-in robots.txt compliance and rate limiting
               </p>
             </div>
 
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">🔗</div>
-              <div className="srcl-feature-title">Knowledge Graphs</div>
+              <div className="srcl-feature-icon">{'<>'}</div>
+              <div className="srcl-feature-title">Graphs</div>
               <p className="srcl-feature-description">
-                Build and query entity-relationship graphs from crawled content automatically
+                Build entity-relationship graphs automatically
               </p>
             </div>
 
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">🧠</div>
-              <div className="srcl-feature-title">Smart Processing</div>
+              <div className="srcl-feature-icon">{'##'}</div>
+              <div className="srcl-feature-title">Smart</div>
               <p className="srcl-feature-description">
-                AI-powered entity recognition, content classification, and semantic analysis
+                AI-powered entity recognition and classification
               </p>
             </div>
 
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">💾</div>
-              <div className="srcl-feature-title">Multiple Storage</div>
+              <div className="srcl-feature-icon">{'::'}</div>
+              <div className="srcl-feature-title">Storage</div>
               <p className="srcl-feature-description">
-                RocksDB, PostgreSQL, and graph database support with vector embeddings
+                RocksDB, PostgreSQL, and graph databases
               </p>
             </div>
 
             <div className="srcl-feature">
-              <div className="srcl-feature-icon">🌐</div>
-              <div className="srcl-feature-title">Browser Support</div>
+              <div className="srcl-feature-icon">{'()'}</div>
+              <div className="srcl-feature-title">Browser</div>
               <p className="srcl-feature-description">
-                Handle JavaScript-heavy sites with integrated browser automation
+                Handle JavaScript-heavy sites with automation
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section style={{ padding: '48px 16px', borderTop: '1px solid var(--theme-border)', borderBottom: '1px solid var(--theme-border)' }}>
-        <div className="srcl-container">
-          <h2 style={{ textAlign: 'center', marginBottom: '8px' }}>POWERED BY BEST-IN-CLASS TECHNOLOGIES</h2>
-          <p style={{ textAlign: 'center', marginBottom: '48px' }}>
-            Built with modern Rust ecosystem and proven libraries. Open source and community-driven.
-          </p>
-
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '48px', flexWrap: 'wrap' }}>
-            <div style={{ textAlign: 'center' }}>
-              <Image
-                src="https://raw.githubusercontent.com/rust-lang/rust-artwork/master/logo/rust-logo-64x64.png"
-                alt="Rust"
-                width={48}
-                height={48}
-                style={{ width: '48px', height: '48px' }}
-              />
-              <div style={{ marginTop: '8px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Rust</div>
-            </div>
-            <a href="https://tokio.rs/" target="_blank" rel="noopener noreferrer" style={{ textAlign: 'center' }}>
-              <Image
-                src="https://tokio.rs/img/icons/tokio.svg"
-                alt="Tokio"
-                width={48}
-                height={48}
-                style={{ width: '48px', height: '48px' }}
-                className="dark:invert"
-              />
-              <div style={{ marginTop: '8px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Tokio</div>
-            </a>
-            <div style={{ textAlign: 'center' }}>
-              <Image
-                src="https://avatars.githubusercontent.com/u/56036552?s=200&v=4"
-                alt="Axum"
-                width={48}
-                height={48}
-                style={{ width: '48px', height: '48px', borderRadius: '8px' }}
-              />
-              <div style={{ marginTop: '8px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Axum</div>
-            </div>
-            <a href="https://serde.rs" target="_blank" rel="noopener noreferrer" style={{ textAlign: 'center' }}>
-              <Image
-                src="https://raw.githubusercontent.com/rust-lang/rust-artwork/master/logo/rust-logo-64x64.png"
-                alt="Serde"
-                width={48}
-                height={48}
-                style={{ width: '48px', height: '48px' }}
-              />
-              <div style={{ marginTop: '8px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Serde</div>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Divider */}
+      <div className="srcl-section-header">
+        <span>INSTALL</span>
+      </div>
 
       {/* Installation Section */}
-      <section style={{ padding: '48px 16px' }}>
-        <div className="srcl-container" style={{ maxWidth: '800px' }}>
-          <h2 style={{ textAlign: 'center', marginBottom: '8px' }}>INSTALL OMNIVORE</h2>
-          <p style={{ textAlign: 'center', marginBottom: '48px' }}>
-            Choose your preferred method. Copy, paste, and run.
-          </p>
-
-          <div style={{ marginBottom: '32px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap: '12px' }}>
-              <span style={{ fontSize: '16px' }}>🍺</span>
-              <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Homebrew</span>
-            </div>
+      <section style={{ padding: 'calc(var(--line-height) * 2) 2ch' }}>
+        <div style={{ maxWidth: '64ch', margin: '0 auto' }}>
+          <div style={{ marginBottom: 'calc(var(--line-height) * 2)' }}>
+            <div style={{ marginBottom: 'var(--line-height)' }}>HOMEBREW</div>
             <CodeBlock language="bash">{`brew tap Pranav-Karra-3301/omnivore
 brew install omnivore`}</CodeBlock>
           </div>
 
-          <div style={{ marginBottom: '32px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap: '12px' }}>
-              <span style={{ fontSize: '16px' }}>🐳</span>
-              <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Docker</span>
-            </div>
-            <CodeBlock language="bash">{`# Run CLI
-docker run --rm -it omnivore:latest omnivore --help
-
-# With persistent data
-docker run --rm -v $(pwd)/data:/var/lib/omnivore omnivore:latest`}</CodeBlock>
+          <div style={{ marginBottom: 'calc(var(--line-height) * 2)' }}>
+            <div style={{ marginBottom: 'var(--line-height)' }}>DOCKER</div>
+            <CodeBlock language="bash">{`docker run --rm -it omnivore:latest omnivore --help`}</CodeBlock>
           </div>
 
-          <div style={{ marginBottom: '32px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap: '12px' }}>
-              <span style={{ fontSize: '16px' }}>📦</span>
-              <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>From Source</span>
-            </div>
+          <div style={{ marginBottom: 'calc(var(--line-height) * 2)' }}>
+            <div style={{ marginBottom: 'var(--line-height)' }}>FROM SOURCE</div>
             <CodeBlock language="bash">{`git clone https://github.com/Pranav-Karra-3301/omnivore.git
 cd omnivore
 cargo install --path omnivore-cli --force`}</CodeBlock>
           </div>
 
-          <div className="srcl-divider srcl-divider-dashed" />
+          <div className="srcl-divider" />
 
-          <h3 style={{ textAlign: 'center', marginBottom: '24px' }}>USE OMNIVORE</h3>
-
-          <div style={{ marginBottom: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', gap: '8px' }}>
-              <span style={{ fontSize: '14px' }}>🌐</span>
-              <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>First crawl</span>
-            </div>
+          <div style={{ marginBottom: 'calc(var(--line-height) * 2)' }}>
+            <div style={{ marginBottom: 'var(--line-height)' }}>FIRST CRAWL</div>
             <CodeBlock language="bash">{`omnivore crawl https://example.com --workers 5 --depth 3`}</CodeBlock>
           </div>
 
-          <div style={{ marginBottom: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', gap: '8px' }}>
-              <span style={{ fontSize: '14px' }}>🔗</span>
-              <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Build knowledge graph</span>
-            </div>
+          <div style={{ marginBottom: 'calc(var(--line-height) * 2)' }}>
+            <div style={{ marginBottom: 'var(--line-height)' }}>BUILD GRAPH</div>
             <CodeBlock language="bash">{`omnivore graph results.json --output knowledge-graph.db`}</CodeBlock>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '32px' }}>
+          <div style={{ textAlign: 'center', marginTop: 'calc(var(--line-height) * 2)' }}>
             <Link href="/docs/quickstart" className="srcl-button">
-              VIEW FULL GUIDE →
+              FULL GUIDE
             </Link>
           </div>
         </div>
@@ -270,17 +182,10 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
         <div className="srcl-footer-content">
           <div className="srcl-footer-grid">
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <Image
-                  src="/logo.png"
-                  alt="Omnivore Logo"
-                  width={24}
-                  height={24}
-                  style={{ width: '24px', height: '24px' }}
-                />
-                <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '2px' }}>OMNIVORE</span>
+              <div style={{ marginBottom: 'var(--line-height)' }}>
+                <span style={{ textTransform: 'uppercase', letterSpacing: '0.1em' }}>OMNIVORE</span>
               </div>
-              <p style={{ fontSize: '13px', color: 'var(--theme-foreground-secondary)', lineHeight: '1.5' }}>
+              <p style={{ color: 'var(--theme-foreground-secondary)' }}>
                 Universal web crawler and knowledge graph system built in Rust.
               </p>
             </div>
@@ -310,10 +215,9 @@ cargo install --path omnivore-cli --force`}</CodeBlock>
           </div>
 
           <div className="srcl-footer-bottom">
-            <p>© 2024 Omnivore. Open source under MIT License.</p>
+            <p>2024 Omnivore. Open source under MIT License.</p>
             <p>
-              Built with Rust{' '}
-              <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+              <a href="https://pranavkarra.me" target="_blank" rel="noopener noreferrer">
                 Developed by Pranav Karra
               </a>
             </p>

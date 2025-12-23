@@ -1,6 +1,5 @@
 import CodeBlock from '@/components/CodeBlock'
 import Alert from '@/components/Alert'
-import Card from '@/components/Card'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -25,25 +24,25 @@ export default function InstallationPage() {
         use Docker for containerized runs; or build from source for maximum control.
       </p>
 
-      <div className="srcl-grid srcl-grid-3" style={{ marginTop: '24px', marginBottom: '24px' }}>
+      <div className="srcl-grid srcl-grid-3" style={{ marginTop: 'calc(var(--line-height) * 1.5)', marginBottom: 'calc(var(--line-height) * 1.5)' }}>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">🍺</div>
+          <div className="srcl-feature-icon">{'#1'}</div>
           <div className="srcl-feature-title">Homebrew</div>
           <p className="srcl-feature-description">Easiest method for macOS and Linux users</p>
         </div>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">🐳</div>
+          <div className="srcl-feature-icon">{'#2'}</div>
           <div className="srcl-feature-title">Docker</div>
           <p className="srcl-feature-description">Containerized deployment for any platform</p>
         </div>
         <div className="srcl-feature">
-          <div className="srcl-feature-icon">&gt;_</div>
+          <div className="srcl-feature-icon">{'#3'}</div>
           <div className="srcl-feature-title">From Source</div>
           <p className="srcl-feature-description">Build from source for maximum customization</p>
         </div>
       </div>
 
-      <h2>Method 1: Homebrew (Recommended)</h2>
+      <h2>METHOD 1: HOMEBREW (RECOMMENDED)</h2>
       <Alert variant="success" title="Recommended">
         Recommended for most users on macOS and Linux.
       </Alert>
@@ -70,7 +69,7 @@ omnivore --version
 # Help
 omnivore --help`}</CodeBlock>
 
-      <h2>Method 2: Docker</h2>
+      <h2>METHOD 2: DOCKER</h2>
       <p>Docker provides a consistent environment across all platforms and includes all dependencies.</p>
 
       <h3>Quick Start</h3>
@@ -88,13 +87,13 @@ cd omnivore
 # Start the stack
 docker-compose up -d`}</CodeBlock>
 
-      <h2>Method 3: From Source</h2>
+      <h2>METHOD 3: FROM SOURCE</h2>
       <Alert variant="info" title="System Requirements">
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          <li>▪ Rust 1.80+ with Cargo</li>
-          <li>▪ Git for cloning the repository</li>
-          <li>▪ OpenSSL development headers</li>
-          <li>▪ pkg-config (Linux)</li>
+          <li>- Rust 1.80+ with Cargo</li>
+          <li>- Git for cloning the repository</li>
+          <li>- OpenSSL development headers</li>
+          <li>- pkg-config (Linux)</li>
         </ul>
       </Alert>
 
@@ -144,7 +143,7 @@ echo 'source /path/to/omnivore/completions/omnivore.bash' >> ~/.bashrc
 # Add to your shell profile (Zsh)
 echo 'source /path/to/omnivore/completions/_omnivore' >> ~/.zshrc`}</CodeBlock>
 
-      <h2>Configuration</h2>
+      <h2>CONFIGURATION</h2>
       <p>After installation, configure Omnivore:</p>
 
       <h3>Create Default Config</h3>
@@ -166,7 +165,7 @@ max_requests_per_second = 10.0
 data_dir = "~/.local/share/omnivore"
 cache_size_mb = 512`}</CodeBlock>
 
-      <h2>Updating</h2>
+      <h2>UPDATING</h2>
 
       <h3>Homebrew</h3>
       <CodeBlock language="bash">{`brew update && brew upgrade omnivore`}</CodeBlock>
@@ -180,7 +179,7 @@ docker build -t omnivore:latest .`}</CodeBlock>
       <CodeBlock language="bash">{`git pull origin main
 cargo install --path omnivore-cli --force`}</CodeBlock>
 
-      <h2>Uninstallation</h2>
+      <h2>UNINSTALLATION</h2>
 
       <h3>Homebrew</h3>
       <CodeBlock language="bash">{`brew services stop omnivore
@@ -197,7 +196,7 @@ rm -rf ~/.config/omnivore`}</CodeBlock>
 docker rmi omnivore:latest
 docker volume prune`}</CodeBlock>
 
-      <h2>Troubleshooting</h2>
+      <h2>TROUBLESHOOTING</h2>
 
       <p><strong>Rust not found</strong></p>
       <CodeBlock language="bash">{`source ~/.cargo/env`}</CodeBlock>
