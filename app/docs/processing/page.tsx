@@ -1,5 +1,5 @@
-import { FileText, Filter, Cpu, Database, Search, Code, Layers, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import Alert from '@/components/Alert'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -23,35 +23,26 @@ export const metadata: Metadata = {
 
 export default function ProcessingPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Data Processing Pipeline</h1>
-      
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Omnivore&apos;s data processing pipeline transforms raw web content into structured, analyzable data. 
+    <div>
+      <h1>Data Processing Pipeline</h1>
+
+      <p>
+        Omnivore&apos;s data processing pipeline transforms raw web content into structured, analyzable data.
         From HTML parsing to entity extraction, each stage is optimized for performance and accuracy.
       </p>
 
-      <div className="not-prose grid md:grid-cols-3 gap-6 my-12">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
-          <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-            <FileText className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">HTML Parsing</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Fast, accurate HTML parsing with content extraction</p>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h3>HTML Parsing</h3>
+          <p>Fast, accurate HTML parsing with content extraction</p>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-xl p-6 border border-green-200 dark:border-green-800">
-          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-            <Filter className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Content Cleaning</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Remove noise, ads, and extract main content</p>
+        <div className="srcl-feature">
+          <h3>Content Cleaning</h3>
+          <p>Remove noise, ads, and extract main content</p>
         </div>
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
-          <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
-            <Cpu className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Enrichment</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Add metadata, classify content, extract entities</p>
+        <div className="srcl-feature">
+          <h3>Enrichment</h3>
+          <p>Add metadata, classify content, extract entities</p>
         </div>
       </div>
 
@@ -62,71 +53,34 @@ export default function ProcessingPage() {
         The processing pipeline consists of sequential stages, each optimized for specific tasks:
       </p>
 
-      <div className="not-prose my-8">
-        <div className="space-y-4">
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">1</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Raw Content Ingestion</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Receive HTML, PDF, or text content from crawler</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">2</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Content Parsing</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Parse HTML structure, extract text and metadata</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">3</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Content Cleaning</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Remove boilerplate, ads, navigation elements</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">4</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Text Processing</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Normalize text, language detection, encoding fixes</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">5</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Metadata Extraction</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Extract title, author, dates, tags, categories</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">6</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Content Enrichment</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Entity extraction, classification, sentiment analysis</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">7</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Storage & Indexing</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">Store processed data, create search indexes</p>
-            </div>
-          </div>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>1. Raw Content Ingestion</h4>
+          <p>Receive HTML, PDF, or text content from crawler</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>2. Content Parsing</h4>
+          <p>Parse HTML structure, extract text and metadata</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>3. Content Cleaning</h4>
+          <p>Remove boilerplate, ads, navigation elements</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>4. Text Processing</h4>
+          <p>Normalize text, language detection, encoding fixes</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>5. Metadata Extraction</h4>
+          <p>Extract title, author, dates, tags, categories</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>6. Content Enrichment</h4>
+          <p>Entity extraction, classification, sentiment analysis</p>
+        </div>
+        <div className="srcl-feature">
+          <h4>7. Storage & Indexing</h4>
+          <p>Store processed data, create search indexes</p>
         </div>
       </div>
 
@@ -257,25 +211,25 @@ let processed = processor
         Omnivore automatically extracts various types of metadata:
       </p>
 
-      <div className="not-prose grid md:grid-cols-2 gap-4 my-6">
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Document Metadata</h4>
-          <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-            <li>• Title and headings</li>
-            <li>• Author and publication date</li>
-            <li>• Description and keywords</li>
-            <li>• Language and encoding</li>
-            <li>• Document type and format</li>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>Document Metadata</h4>
+          <ul>
+            <li>Title and headings</li>
+            <li>Author and publication date</li>
+            <li>Description and keywords</li>
+            <li>Language and encoding</li>
+            <li>Document type and format</li>
           </ul>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Technical Metadata</h4>
-          <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-            <li>• URL and domain</li>
-            <li>• Content-Type and size</li>
-            <li>• Last modified date</li>
-            <li>• HTTP headers</li>
-            <li>• Response codes</li>
+        <div className="srcl-feature">
+          <h4>Technical Metadata</h4>
+          <ul>
+            <li>URL and domain</li>
+            <li>Content-Type and size</li>
+            <li>Last modified date</li>
+            <li>HTTP headers</li>
+            <li>Response codes</li>
           </ul>
         </div>
       </div>
@@ -368,31 +322,31 @@ stages:
     config:
       engine: html5ever
       extract_metadata: true
-  
+
   - name: clean
     type: content_cleaner
     config:
       algorithm: readability
       min_words: 100
-  
+
   - name: extract_entities
     type: ner
     config:
       model: en_core_web_lg
       types: [person, org, location]
-  
+
   - name: classify
     type: classifier
     config:
       model: news-classifier
       categories: [politics, tech, business]
-  
+
   - name: summarize
     type: summarizer
     config:
       algorithm: extractive
       sentences: 3
-  
+
   - name: store
     type: storage
     config:
@@ -557,18 +511,17 @@ omnivore process retry \\
 
       <h2>Best Practices</h2>
 
-      <div className="not-prose bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-8">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Processing Guidelines</h3>
-        <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-          <li>✓ Validate input data before processing</li>
-          <li>✓ Use appropriate algorithms for content type</li>
-          <li>✓ Set reasonable timeouts for each stage</li>
-          <li>✓ Monitor memory usage with large documents</li>
-          <li>✓ Implement checkpointing for long-running jobs</li>
-          <li>✓ Log processing metrics for optimization</li>
-          <li>✓ Test pipelines with sample data first</li>
+      <Alert variant="info" title="Processing Guidelines">
+        <ul>
+          <li>Validate input data before processing</li>
+          <li>Use appropriate algorithms for content type</li>
+          <li>Set reasonable timeouts for each stage</li>
+          <li>Monitor memory usage with large documents</li>
+          <li>Implement checkpointing for long-running jobs</li>
+          <li>Log processing metrics for optimization</li>
+          <li>Test pipelines with sample data first</li>
         </ul>
-      </div>
+      </Alert>
     </div>
   )
 }

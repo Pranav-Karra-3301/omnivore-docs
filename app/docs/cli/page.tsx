@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function CLIPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">CLI Reference</h1>
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">Key commands available in the Omnivore CLI.</p>
+    <div>
+      <h1>CLI Reference</h1>
+      <p>Key commands available in the Omnivore CLI.</p>
 
       <h2>Commands</h2>
       <h3>crawl</h3>

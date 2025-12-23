@@ -1,5 +1,5 @@
-import { GitBranch, GitPullRequest, Bug, MessageSquare, Code, CheckCircle } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import Alert from '@/components/Alert'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -23,28 +23,22 @@ export const metadata: Metadata = {
 
 export default function ContributingPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Contributing to Omnivore</h1>
-      
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Omnivore is an open-source project and we welcome contributions from the community! Whether you&apos;re fixing bugs, 
+    <div>
+      <h1>Contributing to Omnivore</h1>
+
+      <p>
+        Omnivore is an open-source project and we welcome contributions from the community! Whether you&apos;re fixing bugs,
         adding features, improving documentation, or reporting issues, your help is valuable.
       </p>
 
-      <div className="not-prose grid md:grid-cols-2 gap-6 my-12">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
-          <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-            <Bug className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Report Issues</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Found a bug? Let us know on GitHub Issues</p>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h3>Report Issues</h3>
+          <p>Found a bug? Let us know on GitHub Issues</p>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-xl p-6 border border-green-200 dark:border-green-800">
-          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-            <GitPullRequest className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Submit PRs</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Contribute code improvements and new features</p>
+        <div className="srcl-feature">
+          <h3>Submit PRs</h3>
+          <p>Contribute code improvements and new features</p>
         </div>
       </div>
 
@@ -123,21 +117,15 @@ Fixes #123`}</CodeBlock>
       <h2>Submitting Pull Requests</h2>
 
       <h3>Before Submitting</h3>
-      <div className="not-prose bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
-        <div className="flex items-start">
-          <CheckCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mr-2 mt-0.5" />
-          <div>
-            <p className="text-yellow-800 dark:text-yellow-200 font-medium">PR Checklist</p>
-            <ul className="text-yellow-700 dark:text-yellow-300 text-sm mt-2 space-y-1">
-              <li>✓ Code follows project style guidelines</li>
-              <li>✓ All tests pass locally</li>
-              <li>✓ Documentation is updated if needed</li>
-              <li>✓ Commit messages are clear and descriptive</li>
-              <li>✓ PR description explains the changes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Alert variant="warning" title="PR Checklist">
+        <ul>
+          <li>Code follows project style guidelines</li>
+          <li>All tests pass locally</li>
+          <li>Documentation is updated if needed</li>
+          <li>Commit messages are clear and descriptive</li>
+          <li>PR description explains the changes</li>
+        </ul>
+      </Alert>
 
       <h3>Submit Your PR</h3>
       <CodeBlock language="bash">{`# Push your branch
@@ -199,31 +187,22 @@ Any other relevant information.`}</CodeBlock>
 
       <h2>Areas for Contribution</h2>
 
-      <div className="not-prose grid gap-4 my-8">
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <Code className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Core Features</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>Core Features</h4>
+          <p>
             Crawler improvements, performance optimizations, new parsing strategies
           </p>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <GitBranch className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Knowledge Graph</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+        <div className="srcl-feature">
+          <h4>Knowledge Graph</h4>
+          <p>
             Entity extraction, relationship mapping, graph algorithms
           </p>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <MessageSquare className="w-5 h-5 text-purple-600 dark:text-purple-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Documentation</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+        <div className="srcl-feature">
+          <h4>Documentation</h4>
+          <p>
             Improve docs, add examples, translate content, fix typos
           </p>
         </div>
@@ -248,12 +227,11 @@ Any other relevant information.`}</CodeBlock>
         <li>Respect differing viewpoints and experiences</li>
       </ul>
 
-      <div className="not-prose bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-6 mt-12">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Thank You!</h3>
-        <p className="text-gray-600 dark:text-gray-300">
+      <Alert variant="success" title="Thank You!">
+        <p>
           Your contributions make Omnivore better for everyone. We appreciate your time and effort in improving this project!
         </p>
-      </div>
+      </Alert>
     </div>
   )
 }

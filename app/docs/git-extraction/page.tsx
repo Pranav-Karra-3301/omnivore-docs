@@ -1,5 +1,5 @@
-import { GitBranch, FileCode, Filter, Download, FolderOpen, Terminal, Shield, Zap } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import Alert from '@/components/Alert'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -23,35 +23,26 @@ export const metadata: Metadata = {
 
 export default function GitExtractionPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Git Repository Code Extraction</h1>
-      
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Intelligently extract meaningful code from Git repositories. Automatically filters out noise like build artifacts, 
+    <div>
+      <h1>Git Repository Code Extraction</h1>
+
+      <p>
+        Intelligently extract meaningful code from Git repositories. Automatically filters out noise like build artifacts,
         dependencies, and generated files while preserving the important source code you need for analysis or LLM processing.
       </p>
 
-      <div className="not-prose grid md:grid-cols-3 gap-6 my-12">
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
-          <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
-            <Filter className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Smart Filtering</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Automatically excludes build artifacts, node_modules, and generated files</p>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h3>Smart Filtering</h3>
+          <p>Automatically excludes build artifacts, node_modules, and generated files</p>
         </div>
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
-          <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-            <Shield className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Gitignore Respect</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Honors .gitignore files by default for accurate extraction</p>
+        <div className="srcl-feature">
+          <h3>Gitignore Respect</h3>
+          <p>Honors .gitignore files by default for accurate extraction</p>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-xl p-6 border border-green-200 dark:border-green-800">
-          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-            <FileCode className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Flexible Output</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Export as JSON, plain text, or preserve directory structure</p>
+        <div className="srcl-feature">
+          <h3>Flexible Output</h3>
+          <p>Export as JSON, plain text, or preserve directory structure</p>
         </div>
       </div>
 
@@ -61,52 +52,30 @@ export default function GitExtractionPage() {
         The Git extraction tool operates in four distinct phases to intelligently extract code:
       </p>
 
-      <div className="not-prose my-8">
-        <div className="space-y-4">
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">1</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Source Acquisition</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Determines if working with a remote URL or local directory. For remote repos, performs a shallow clone.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">2</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">File Filtering</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Applies intelligent filtering rules to identify important files, respecting .gitignore and user patterns.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">3</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Content Aggregation</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Reads filtered files into memory, detecting and skipping binary files automatically.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-4">
-            <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">4</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white">Output & Cleanup</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Formats content as requested (JSON, text, or directory) and cleans up temporary files.
-              </p>
-            </div>
-          </div>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>1. Source Acquisition</h4>
+          <p>
+            Determines if working with a remote URL or local directory. For remote repos, performs a shallow clone.
+          </p>
+        </div>
+        <div className="srcl-feature">
+          <h4>2. File Filtering</h4>
+          <p>
+            Applies intelligent filtering rules to identify important files, respecting .gitignore and user patterns.
+          </p>
+        </div>
+        <div className="srcl-feature">
+          <h4>3. Content Aggregation</h4>
+          <p>
+            Reads filtered files into memory, detecting and skipping binary files automatically.
+          </p>
+        </div>
+        <div className="srcl-feature">
+          <h4>4. Output & Cleanup</h4>
+          <p>
+            Formats content as requested (JSON, text, or directory) and cleans up temporary files.
+          </p>
         </div>
       </div>
 
@@ -266,53 +235,26 @@ omnivore git https://github.com/user/repo.git \\
         Files pass through multiple filtering layers to determine inclusion:
       </p>
 
-      <div className="not-prose my-8">
-        <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 space-y-4">
-          <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-red-100 dark:bg-red-900 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-red-600 dark:text-red-400">1</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white">System Excludes</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Always ignores: <code>.git/</code>, <code>.svn/</code>, <code>.hg/</code></p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-orange-100 dark:bg-orange-900 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-orange-600 dark:text-orange-400">2</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white">.gitignore Processing</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Respects all .gitignore files (unless <code>--no-gitignore</code>)</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-yellow-100 dark:bg-yellow-900 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-yellow-600 dark:text-yellow-400">3</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white">User Excludes</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Applies <code>--exclude</code> patterns</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400">4</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white">Binary Detection</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Skips binary files (unless <code>--allow-binary</code>)</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-green-100 dark:bg-green-900 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-green-600 dark:text-green-400">5</span>
-            </div>
-            <div>
-              <h5 className="font-semibold text-gray-900 dark:text-white">User Includes</h5>
-              <p className="text-sm text-gray-600 dark:text-gray-300">If specified, only keeps files matching <code>--include</code> patterns</p>
-            </div>
-          </div>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h5>1. System Excludes</h5>
+          <p>Always ignores: <code>.git/</code>, <code>.svn/</code>, <code>.hg/</code></p>
+        </div>
+        <div className="srcl-feature">
+          <h5>2. .gitignore Processing</h5>
+          <p>Respects all .gitignore files (unless <code>--no-gitignore</code>)</p>
+        </div>
+        <div className="srcl-feature">
+          <h5>3. User Excludes</h5>
+          <p>Applies <code>--exclude</code> patterns</p>
+        </div>
+        <div className="srcl-feature">
+          <h5>4. Binary Detection</h5>
+          <p>Skips binary files (unless <code>--allow-binary</code>)</p>
+        </div>
+        <div className="srcl-feature">
+          <h5>5. User Includes</h5>
+          <p>If specified, only keeps files matching <code>--include</code> patterns</p>
         </div>
       </div>
 
@@ -440,32 +382,30 @@ omnivore git . --include "shared/**/*" --output ./shared-code`}</CodeBlock>
 
       <h2>Security Considerations</h2>
 
-      <div className="not-prose bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6 my-8">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Security Notes</h3>
-        <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-          <li>⚠️ Symbolic links are not followed to prevent security risks</li>
-          <li>⚠️ Binary files are detected and excluded by default</li>
-          <li>⚠️ File paths are sanitized to prevent directory traversal</li>
-          <li>⚠️ Temporary clones are created in secure system temp directories</li>
-          <li>⚠️ Git credentials are never stored or logged by the tool</li>
+      <Alert variant="warning" title="Security Notes">
+        <ul>
+          <li>Symbolic links are not followed to prevent security risks</li>
+          <li>Binary files are detected and excluded by default</li>
+          <li>File paths are sanitized to prevent directory traversal</li>
+          <li>Temporary clones are created in secure system temp directories</li>
+          <li>Git credentials are never stored or logged by the tool</li>
         </ul>
-      </div>
+      </Alert>
 
       <h2>Best Practices</h2>
 
-      <div className="not-prose bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-6 my-8">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recommendations</h3>
-        <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-          <li>✓ Always use shallow clones for remote repositories unless full history is needed</li>
-          <li>✓ Set appropriate file size limits to avoid memory issues</li>
-          <li>✓ Use include patterns for specific file types when possible</li>
-          <li>✓ Test patterns on small repositories first</li>
-          <li>✓ Respect .gitignore files unless you have a specific reason not to</li>
-          <li>✓ Use JSON output for programmatic processing</li>
-          <li>✓ Use text output for LLM consumption</li>
-          <li>✓ Keep binary detection enabled for text/JSON outputs</li>
+      <Alert variant="success" title="Recommendations">
+        <ul>
+          <li>Always use shallow clones for remote repositories unless full history is needed</li>
+          <li>Set appropriate file size limits to avoid memory issues</li>
+          <li>Use include patterns for specific file types when possible</li>
+          <li>Test patterns on small repositories first</li>
+          <li>Respect .gitignore files unless you have a specific reason not to</li>
+          <li>Use JSON output for programmatic processing</li>
+          <li>Use text output for LLM consumption</li>
+          <li>Keep binary detection enabled for text/JSON outputs</li>
         </ul>
-      </div>
+      </Alert>
 
       <h2>Troubleshooting</h2>
 
@@ -504,17 +444,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Install Omnivore
         run: |
           curl -sSfL https://raw.githubusercontent.com/Pranav-Karra-3301/omnivore/master/install.sh | sh
-      
+
       - name: Extract Code
         run: |
           omnivore git . \\
             --include "src/**/*.rs" \\
             --json > codebase.json
-      
+
       - name: Analyze
         run: |
           python analyze.py codebase.json`}</CodeBlock>

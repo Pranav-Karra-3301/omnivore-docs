@@ -1,5 +1,5 @@
-import { Network, Database, GitBranch, Cpu, Search, BarChart, Layers, Link2 } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
+import Alert from '@/components/Alert'
 import type { Metadata } from 'next'
 
 const ogImageUrl = '/docs_preview.png'
@@ -23,35 +23,26 @@ export const metadata: Metadata = {
 
 export default function KnowledgeGraphsPage() {
   return (
-    <div className="prose prose-lg max-w-none dark:prose-invert">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Knowledge Graphs</h1>
-      
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Transform crawled web data into structured knowledge graphs. Extract entities, discover relationships, 
+    <div>
+      <h1>Knowledge Graphs</h1>
+
+      <p>
+        Transform crawled web data into structured knowledge graphs. Extract entities, discover relationships,
         and build queryable graph databases for advanced insights and analysis.
       </p>
 
-      <div className="not-prose grid md:grid-cols-3 gap-6 my-12">
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
-          <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
-            <Network className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Entity Extraction</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Automatic detection of people, places, organizations, and concepts</p>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h3>Entity Extraction</h3>
+          <p>Automatic detection of people, places, organizations, and concepts</p>
         </div>
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
-          <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-            <Link2 className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Relationship Mapping</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Discover connections between entities across documents</p>
+        <div className="srcl-feature">
+          <h3>Relationship Mapping</h3>
+          <p>Discover connections between entities across documents</p>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 rounded-xl p-6 border border-green-200 dark:border-green-800">
-          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-            <Database className="w-6 h-6 text-white" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Graph Database</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">Export to Neo4j, ArangoDB, or custom graph formats</p>
+        <div className="srcl-feature">
+          <h3>Graph Database</h3>
+          <p>Export to Neo4j, ArangoDB, or custom graph formats</p>
         </div>
       </div>
 
@@ -105,27 +96,27 @@ export default function KnowledgeGraphsPage() {
       <h2>Entity Extraction</h2>
 
       <h3>Supported Entity Types</h3>
-      <div className="not-prose grid md:grid-cols-2 gap-4 my-6">
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Named Entities</h4>
-          <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-            <li>• People (names, titles)</li>
-            <li>• Organizations (companies, institutions)</li>
-            <li>• Locations (cities, countries, addresses)</li>
-            <li>• Dates and times</li>
-            <li>• Monetary values</li>
-            <li>• Products and services</li>
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>Named Entities</h4>
+          <ul>
+            <li>People (names, titles)</li>
+            <li>Organizations (companies, institutions)</li>
+            <li>Locations (cities, countries, addresses)</li>
+            <li>Dates and times</li>
+            <li>Monetary values</li>
+            <li>Products and services</li>
           </ul>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Custom Entities</h4>
-          <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-            <li>• Email addresses</li>
-            <li>• Phone numbers</li>
-            <li>• URLs and domains</li>
-            <li>• Social media handles</li>
-            <li>• Technical terms</li>
-            <li>• Industry-specific entities</li>
+        <div className="srcl-feature">
+          <h4>Custom Entities</h4>
+          <ul>
+            <li>Email addresses</li>
+            <li>Phone numbers</li>
+            <li>URLs and domains</li>
+            <li>Social media handles</li>
+            <li>Technical terms</li>
+            <li>Industry-specific entities</li>
           </ul>
         </div>
       </div>
@@ -172,23 +163,23 @@ enum RelationType {
     ManagesEmployeeOf,
     ParentCompany,
     Subsidiary,
-    
+
     // Personal
     Knows,
     RelatedTo,
     ContactOf,
-    
+
     // Locational
     LocatedIn,
     HeadquarteredIn,
     OperatesIn,
-    
+
     // Transactional
     Customer,
     Supplier,
     Partner,
     Competitor,
-    
+
     // Content
     Mentions,
     References,
@@ -237,14 +228,14 @@ omnivore graph build crawl-results.json \\
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load crawled data
     let crawl_data = load_crawl_results("results.json")?;
-    
+
     // Configure entity extractor
     let extractor = EntityExtractor::builder()
         .add_entity_type(EntityType::Person)
         .add_entity_type(EntityType::Organization)
         .min_confidence(0.75)
         .build();
-    
+
     // Build knowledge graph
     let graph_builder = GraphBuilder::new(extractor);
     let knowledge_graph = graph_builder
@@ -253,7 +244,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .discover_relationships()
         .build()
         .await?;
-    
+
     // Query the graph
     let ceo_nodes = knowledge_graph
         .query()
@@ -261,21 +252,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .filter_type(EntityType::Person)
         .filter_property("title", "CEO")
         .execute()?;
-    
+
     println!("Found {} CEOs", ceo_nodes.len());
-    
+
     // Export to different formats
     knowledge_graph.export_json("graph.json")?;
     knowledge_graph.export_graphml("graph.graphml")?;
     knowledge_graph.export_neo4j("bolt://localhost:7687")?;
-    
+
     Ok(())
 }`}</CodeBlock>
 
       <h2>Graph Storage & Export</h2>
 
       <h3>Storage Backends</h3>
-      
+
       <h4>1. Neo4j Export</h4>
       <CodeBlock language="bash">{`# Export to Neo4j database
 omnivore graph export knowledge-graph.json \\
@@ -419,31 +410,22 @@ omnivore graph serve knowledge-graph.json \\
 
       <h2>Use Cases</h2>
 
-      <div className="not-prose grid gap-4 my-8">
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <Search className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Competitive Intelligence</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+      <div className="srcl-features">
+        <div className="srcl-feature">
+          <h4>Competitive Intelligence</h4>
+          <p>
             Map competitor relationships, track personnel movements, and identify partnership networks
           </p>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <BarChart className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Market Analysis</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+        <div className="srcl-feature">
+          <h4>Market Analysis</h4>
+          <p>
             Discover industry trends, identify key players, and analyze market relationships
           </p>
         </div>
-        <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
-          <div className="flex items-center mb-2">
-            <Layers className="w-5 h-5 text-purple-600 dark:text-purple-400 mr-2" />
-            <h4 className="font-semibold text-gray-900 dark:text-white">Research & Discovery</h4>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+        <div className="srcl-feature">
+          <h4>Research & Discovery</h4>
+          <p>
             Build knowledge bases, track citations, and discover hidden connections in research data
           </p>
         </div>
@@ -479,18 +461,17 @@ optimize_queries = true`}</CodeBlock>
 
       <h2>Best Practices</h2>
 
-      <div className="not-prose bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-6 my-8">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recommendations</h3>
-        <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-          <li>✓ Start with high-confidence thresholds and adjust based on results</li>
-          <li>✓ Use domain-specific entity extractors for better accuracy</li>
-          <li>✓ Regularly validate and clean extracted entities</li>
-          <li>✓ Create indexes on frequently queried properties</li>
-          <li>✓ Use graph partitioning for very large datasets</li>
-          <li>✓ Export to specialized graph databases for production use</li>
-          <li>✓ Implement incremental updates rather than full rebuilds</li>
+      <Alert variant="success" title="Recommendations">
+        <ul>
+          <li>Start with high-confidence thresholds and adjust based on results</li>
+          <li>Use domain-specific entity extractors for better accuracy</li>
+          <li>Regularly validate and clean extracted entities</li>
+          <li>Create indexes on frequently queried properties</li>
+          <li>Use graph partitioning for very large datasets</li>
+          <li>Export to specialized graph databases for production use</li>
+          <li>Implement incremental updates rather than full rebuilds</li>
         </ul>
-      </div>
+      </Alert>
     </div>
   )
 }

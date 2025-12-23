@@ -1,40 +1,39 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from 'react'
+import * as React from 'react'
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState<boolean>(false)
+  const [isLight, setIsLight] = React.useState(false)
 
-  useEffect(() => {
+  React.useEffect(() => {
     try {
-      const t = localStorage.getItem('theme')
-      const dark = t === 'dark' // Only dark if explicitly set, default to light
-      if (dark) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-      setIsDark(dark)
+      const stored = localStorage.getItem('theme')
+      const shouldBeLight = stored === 'light'
+      setIsLight(shouldBeLight)
+      document.documentElement.classList.toggle('light', shouldBeLight)
     } catch {
       // ignore
     }
   }, [])
 
-  const toggle = () => {
-    const root = document.documentElement
-    const next = root.classList.contains('dark') ? 'light' : 'dark'
-    root.classList.toggle('dark')
-    setIsDark(next === 'dark')
-    try { localStorage.setItem('theme', next) } catch {}
+  const toggleTheme = () => {
+    const newValue = !isLight
+    setIsLight(newValue)
+    document.documentElement.classList.toggle('light', newValue)
+    try {
+      localStorage.setItem('theme', newValue ? 'light' : 'dark')
+    } catch {
+      // ignore
+    }
   }
 
   return (
     <button
-      onClick={toggle}
-      className="rounded-md border border-gray-300/60 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-100 shadow-sm backdrop-blur hover:bg-white dark:hover:bg-gray-800"
-      aria-label="Toggle dark mode"
+      onClick={toggleTheme}
+      className="srcl-nav-link"
+      aria-label={isLight ? 'Switch to dark mode' : 'Switch to light mode'}
     >
-      {isDark ? 'Light mode' : 'Dark mode'}
+      {isLight ? 'DARK' : 'LIGHT'}
     </button>
   )
 }
