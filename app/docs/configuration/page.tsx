@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/configuration' },
   title: 'Configuration - Omnivore',
   description: 'Tune Omnivore for your workload using a simple TOML file.',
   openGraph: {

@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/knowledge-graphs' },
   title: 'Knowledge Graphs - Omnivore',
   description: 'Transform crawled web data into structured knowledge graphs.',
   openGraph: {

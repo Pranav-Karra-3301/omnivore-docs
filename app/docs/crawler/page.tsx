@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/crawler' },
   title: 'Crawler Engine - Omnivore',
   description: "Omnivore's crawler engine is a high-performance, parallel web crawler built with Rust and Tokio.",
   openGraph: {

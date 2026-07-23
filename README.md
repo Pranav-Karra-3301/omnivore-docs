@@ -1,6 +1,10 @@
 # Omnivore Documentation Site
 
-This is the official documentation website for Omnivore, built with Next.js 14 and Tailwind CSS.
+This is the documentation website for [Omnivore](https://github.com/Pranav-Karra-3301/omnivore), a fast, parallel web crawler and data extraction CLI built in Rust. Omnivore crawls the web at scale, extracts structured data, and builds entity relationship knowledge graphs. Install the CLI with `cargo install omnivore-cli`.
+
+The site is live at [ov.pranavkarra.me](https://ov.pranavkarra.me) and is built with Next.js 14 using the SRCL terminal aesthetic.
+
+> Note: This Omnivore is a Rust web crawler and data extraction tool. It is unrelated to the discontinued Omnivore read-later app.
 
 ## Development
 
@@ -111,3 +115,7 @@ NEXT_PUBLIC_GITHUB_URL=https://github.com/Pranav-Karra-3301/omnivore
 
 Documentation content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 Code examples are licensed under MIT or Apache-2.0 (same as Omnivore).
+
+## Credits
+
+Built by [Pranav Karra](https://pranavkarra.me).

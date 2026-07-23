@@ -7,6 +7,7 @@ const ogTitle = 'Documentation - Omnivore'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs' },
   title: ogTitle,
   description:
     'Welcome to the comprehensive documentation for Omnivore, the Universal Rust Web Crawler & Knowledge Graph Builder.',

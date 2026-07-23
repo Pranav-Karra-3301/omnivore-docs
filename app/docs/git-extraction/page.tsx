@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/git-extraction' },
   title: 'Git Repository Code Extraction - Omnivore',
   description: 'Intelligently extract meaningful code from Git repositories.',
   openGraph: {

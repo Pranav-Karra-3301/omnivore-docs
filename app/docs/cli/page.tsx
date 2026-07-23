@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/cli' },
   title: 'CLI Reference - Omnivore',
   description: 'Key commands available in the Omnivore CLI.',
   openGraph: {

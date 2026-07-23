@@ -1,10 +1,67 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import CodeBlock from '@/components/CodeBlock'
 import ThemeToggle from '@/components/ThemeToggle'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    url: 'https://ov.pranavkarra.me',
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://ov.pranavkarra.me/#website',
+      url: 'https://ov.pranavkarra.me',
+      name: 'Omnivore',
+      description:
+        'High-performance, parallel web crawler and knowledge graph system built in Rust. Extract, analyze, and graph data from the web at scale.',
+      inLanguage: 'en',
+      publisher: { '@id': 'https://pranavkarra.me/#person' },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://ov.pranavkarra.me/#software',
+      name: 'Omnivore',
+      description:
+        'Omnivore is a fast, parallel web crawler and data extraction CLI built in Rust. Install it with cargo install omnivore-cli and build knowledge graphs from crawled data at scale.',
+      url: 'https://ov.pranavkarra.me',
+      downloadUrl: 'https://github.com/Pranav-Karra-3301/omnivore',
+      softwareVersion: '0.1.0',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'macOS, Linux',
+      programmingLanguage: 'Rust',
+      license: 'https://opensource.org/licenses/MIT',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      creator: { '@id': 'https://pranavkarra.me/#person' },
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://pranavkarra.me/#person',
+      name: 'Pranav Karra',
+      url: 'https://pranavkarra.me',
+      sameAs: [
+        'https://github.com/Pranav-Karra-3301',
+        'https://www.linkedin.com/in/pranavkarra001',
+        'https://x.com/pranavkarra',
+      ],
+    },
+  ],
+}
 
 export default function HomePage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Navigation */}
       <nav className="srcl-nav">
         <Link href="/" className="srcl-nav-logo">

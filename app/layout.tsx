@@ -6,8 +6,18 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://ov.pranavkarra.me'),
   title: 'Omnivore - Universal Web Crawler & Knowledge Graph',
   description: 'High-performance, parallel web crawler and knowledge graph system built in Rust. Extract, analyze, and graph data from the web at scale.',
-  keywords: ['web crawler', 'rust', 'knowledge graph', 'data extraction', 'scraping', 'parallel processing'],
-  authors: [{ name: 'Omnivore Team' }],
+  keywords: ['web crawler', 'rust', 'knowledge graph', 'data extraction', 'scraping', 'parallel processing', 'omnivore-cli', 'cargo'],
+  authors: [{ name: 'Pranav Karra', url: 'https://pranavkarra.me' }],
+  creator: 'Pranav Karra',
+  publisher: 'Pranav Karra',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',

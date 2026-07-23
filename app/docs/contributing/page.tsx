@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/contributing' },
   title: 'Contributing to Omnivore - Omnivore',
   description: 'Omnivore is an open-source project and we welcome contributions from the community!',
   openGraph: {

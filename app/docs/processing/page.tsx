@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 const ogImageUrl = '/docs_preview.png'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/docs/processing' },
   title: 'Data Processing Pipeline - Omnivore',
   description: "Omnivore's data processing pipeline transforms raw web content into structured, analyzable data.",
   openGraph: {
